@@ -43,7 +43,7 @@ export default function Formulario () {
                     <input type="text" className='font-light w-full border border-solid border-black grid h-10 p-2'/>
                 </div>
                 
-                <label htmlFor="" className='font-light pt-2'>Fecha de salida</label>
+                <label htmlFor="" className='font-light pt-2'>Habitación</label>
                 <div className='pt-1'>
                     <select name="" id="" className='font-light h-10 w-full border border-solid border-black p-2'>
                         <option value="" className='font-light'>Habitación 1</option>
@@ -59,7 +59,7 @@ export default function Formulario () {
                         </label>
                     </div>
                 </div>
-                <div className='pt-3 grid justify-items-center'>
+                <div className='pt-3 grid justify-items-center pb-4'>
                     <button className='font-light bg-yellow-800 w-32 h-10 text-white text-2xl'>Reserva</button>
                 </div>
             </form>
