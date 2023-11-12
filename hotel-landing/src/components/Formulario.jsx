@@ -1,9 +1,9 @@
 import {useForm} from  'react-hook-form'
 export default function Formulario () {
     return ( 
-        <form>
+        <form className='bg-red-500'>
             <label htmlFor="">Nombre</label>
-            <input type="text" />
+            <input type="text" className='w-10 pr-10' />
             <label htmlFor="">Primer Apellido</label>
             <input type="text" />
             <label htmlFor="">Correo Electronico</label>
