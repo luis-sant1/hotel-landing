@@ -20,12 +20,12 @@ export default function Formulario () {
                     <input type="text" className='font-light w-full border border-solid border-black grid h-10 p-2'/>
                 </div>
                 <div className='pt-1'>
-                    <div className='grid grid-cols-2 pt-1 justify-items-center'>
+                    <div className='grid grid-cols-2 pt-1 '>
                         <label htmlFor="" className='font-light'>Fecha de entrada</label>
                         <label htmlFor="" className='font-light'>Fecha de salida</label>
                     </div>
                     
-                    <div className='grid grid-cols-2 justify-items-center'>
+                    <div className='grid grid-cols-2 '>
                         <input type="date" className='font-light h-10 w-8/12 border border-solid border-black p-2'/>
                         <input type="date" className='font-light h-10 w-8/12 border border-solid border-black p-2'/>
                     </div>
