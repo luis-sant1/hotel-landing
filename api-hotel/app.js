@@ -1,9 +1,11 @@
 const express = require('express')
 const routes = require("./Routes/routes");
 const userRoutes = require('./Routes/userRoutes')
+const reservationsRoutes = require('./Routes/reservationsRoutes')
 const morgan = require('morgan') // See https request
-const cors=require('cors')
+const cors = require('cors')
 const cookieParser = require('cookie-parser')
+
 
 //Config 
 require('dotenv').config();
@@ -14,22 +16,23 @@ require('./db/db');
 // Settings
 const app = express();
 
+
 //Parse to JSON
 app.use(express.urlencoded({
-    extended: true
-  }));
-app.use(express.json()); 
+    extended: false
+}));
+app.use(express.json());
 app.use(cookieParser())
 
 // FIX CORS
 app.use(cors({
-  origin: 'http://localhost:5173',
-  credentials: true
+    origin: 'http://localhost:5173',
+    credentials: true
 }))
 
 // Routes
 app.use("/", routes);
 app.use('/user', userRoutes)
-
+app.use('/reservations', reservationsRoutes)
 
 module.exports = app;
