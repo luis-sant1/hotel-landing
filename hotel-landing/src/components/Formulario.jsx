@@ -19,7 +19,6 @@ export default function Formulario() {
                     confirmButtonColor: "#9A5832"
                   });
             }
-            console.log(res)
         } catch (error) {
             console.log(error.response.data.error[0].msg)
             setError(error.response.data.error[0].msg)
