@@ -3,7 +3,7 @@ import {useForm} from  'react-hook-form'
 export default function Formulario () {
     return ( 
         
-        <div className='h-full'>
+        <div className='bg-neutral-200 h-full'>
         <div className='mr-auto ml-auto w-11/12 md:w-7/12 lg:w-3/12'>
             <form className='grid grid-cols-1 justify-center h-full'>
                 <label htmlFor="" className='font-light pt-10'>Nombre</label>
