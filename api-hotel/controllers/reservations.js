@@ -24,7 +24,7 @@ const createReservation = async (req, res) => {
             post: 587,
             auth: {
                 user: myEmail,
-                pass:"yimt wbhu tyjw etvh",
+                pass: passwordEmail,
             }
         })
         const msg = {
