@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form'
 import { formReq } from '../api/requests'
 import { useState } from 'react'
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
 export default function Formulario() {
     const [error, setError] = useState("")
     const { register, handleSubmit, formState: {
@@ -9,13 +11,21 @@ export default function Formulario() {
     const onSubmit = handleSubmit(async (values) => {
         try {
             const res = await formReq(values);
+            if(res){
+                Swal.fire({
+                    title: "¡Reservación enviada!",
+                    text: "Recibiras un correo de confirmación a: " + values.email,
+                    icon: "success",
+                    confirmButtonColor: "#9A5832"
+                  });
+            }
             console.log(res)
         } catch (error) {
             console.log(error.response.data.error[0].msg)
             setError(error.response.data.error[0].msg)
         }
     })
-
+    ;
     return (
 
         <div className='h-full'>
@@ -163,11 +173,11 @@ export default function Formulario() {
                     </div>
                     {
                         errors.check && (
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" text-red-500 w-6 h-6">
+                            <div className='flex flex-nowrap mt-2'>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-red-500 w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                                 </svg>
-                                <p className='text-red-500'>Campo Obligatorio.</p>
+                                <p className='text-red-500 mx-1'>Campo Obligatorio.</p>
                             </div>
                         )
                     }
