@@ -4,27 +4,27 @@ import { useState } from 'react'
 import Swal from 'sweetalert2'
 import 'sweetalert2/src/sweetalert2.scss'
 export default function Formulario() {
-    const [error, setError] = useState("")
+    const [error, setError] = useState([])
     const { register, handleSubmit, formState: {
         errors
     } } = useForm()
     const onSubmit = handleSubmit(async (values) => {
         try {
             const res = await formReq(values);
-            if(res){
+            if (res) {
                 Swal.fire({
                     title: "¡Reservación enviada!",
                     text: "Recibiras un correo de confirmación a: " + values.email,
                     icon: "success",
                     confirmButtonColor: "#9A5832"
-                  });
+                });
             }
         } catch (error) {
-            console.log(error.response.data.error[0].msg)
-            setError(error.response.data.error[0].msg)
+            console.log(error.response.data.error)
+            setError(error.response.data.error)
         }
     })
-    ;
+        ;
     return (
 
         <div className='h-full'>
@@ -181,7 +181,9 @@ export default function Formulario() {
                         )
                     }
                     {
-                        error != undefined ? error && <div className='w-98 p-4 my-2 text-sm text-white bg-red-500 text-center rounded-lg justify-center' >{error}</div> : <div className='w-98 p-4 my-2 text-sm text-white bg-red-500 text-center rounded-lg justify-center' >Datos invalidos</div>
+                        error.map((error, i) => (
+                            <div className='w-98 p-4 my-2 text-sm text-white bg-red-500 text-center rounded-lg justify-center' >{error.msg}</div>
+                        ))
                     }
                     <div className='pt-3 grid justify-items-center'>
                         <button type="submit" className='font-light bg-yellow-800 w-32 h-10 text-white text-2xl'>Reserva</button>

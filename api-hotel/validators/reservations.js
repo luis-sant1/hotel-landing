@@ -37,10 +37,30 @@ const validateReservation = [
         }),
     check('entryDate')
         .exists()
-        .withMessage('Campo Obligatorio.'),
+        .withMessage('Campo Obligatorio.')
+        .isDate(),
     check('exitDate')
         .exists()
-        .withMessage('Campo Obligatorio.'),
+        .withMessage('Campo Obligatorio.')
+        .isDate()
+        .custom((date, { req }) => {
+            const newDate = new Date() // nueva fecha
+            const dOTD  = (d) => { // refactorizamos esa fecaha
+                return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() 
+              }
+
+            
+            if (req.body.exitDate <= req.body.entryDate) { // camaparamos fechas en los inputs
+                throw new Error(
+                    '¡Fecha de salida debe ser mayor a fecha de entrada!')
+            }
+            if (req.body.entryDate < dOTD(newDate) ) { // Comapramos fecha de input con acutal
+                throw new Error(
+                    '¡Fecha de entrada no valida! Menor a fecha actual.')
+            }
+            
+            return true
+        }),
     check('phone')
         .exists()
         .withMessage('Campo Obligatorio.')
