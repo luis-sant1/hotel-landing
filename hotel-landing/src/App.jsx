@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 // import Formulario from './components/Formulario'
 import NavBar from './components/NavBar'
 // import Home from './components/Home'
-import Info from './components/Info'
+// import Info from './components/Info'
+import Footer from './components/Footer'
 function App() {
   
   return (
@@ -12,7 +13,8 @@ function App() {
     <>
     <NavBar/>
     {/* <Home/> */}
-    <Info/>
+    {/* <Info/> */}
+    <Footer/>
     {/* <Formulario />  */}
     </>
 
