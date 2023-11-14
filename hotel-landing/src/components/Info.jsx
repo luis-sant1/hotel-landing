@@ -1,6 +1,6 @@
 export default function Info() {
     return(
-        <div className="bg-neutral-200 w-full h-full pt-20 pb-10 md:flex" id="info">
+        <div className="bg-[rgba(230,230,230,1)] w-full h-full pt-20 pb-10 md:flex lg:pb-20" id="info">
             <div className="w-11/12 mr-auto ml-auto" >
                 <div><h1 className="text-5xl font-extralight md:text-6xl lg:pl-5 lg:text-6xl"  >Acerca de nosotros</h1></div>
                 <div className="pt-12 md:flex ">

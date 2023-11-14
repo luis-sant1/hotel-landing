@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 export default function Rooms (){
     return(
-        <div className="m-0 w-96 h-full group  flex text-center ">
+        <div className="m-0 w-full h-full group  flex text-center ">
             <img 
-            className="h-[80vh] group-hover:blur-[2px] relative "
+            className="h-[80vh] group-hover:blur-[2px] relative"
             src="https://thehoughtonhotel.com/wp-content/uploads/2023/04/LUXURY-APART-HOTEL-STUDIO-600x600.jpg" alt="" />
             <div className="absolute z-10 hidden group-hover:block m-auto left-0 right-0  top-[40%] " >
                 <h2 className="text-xl font-light">Habitación para 6 personas</h2>

@@ -22,10 +22,10 @@ export default function Carrusel() {
         }
     };
     return (
-        <div className='w-full h-full pt-10 pb-10'>
-            <div className='flex w-full h-5/6 bg-neutral-200 pt-10' >
-                <div className='w-11/12 overflow-hidden m-auto'>
-                    <h1 className='font-extralight text-3xl md:text-5xl md:pl-8 md:pb-10 lg:text-7xl lg:pl-16'>Descubre más sobre nuestras playas</h1>
+        
+            
+                <div className='w-fulloverflow-hidden m-auto'>
+                    
                     <Carousel
                         responsive={responsive}>
                         <Playas/>
@@ -35,10 +35,7 @@ export default function Carrusel() {
                         <Playas/>
                     </Carousel>
                 </div>
-            </div>
-            <style>
-                @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
-            </style>
-        </div>
+          
+            
     )
 }
