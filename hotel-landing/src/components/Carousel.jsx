@@ -22,20 +22,18 @@ export default function Carrusel() {
         }
     };
     return (
-        
-            
-                <div className='w-fulloverflow-hidden m-auto'>
-                    
-                    <Carousel
-                        responsive={responsive}>
-                        <Playas/>
-                        <Playas/>
-                        <Playas/>
-                        <Playas/>
-                        <Playas/>
-                    </Carousel>
-                </div>
-          
-            
+        <div className='flex w-full' >
+            <div className='w-11/12 overflow-hidden m-auto'>
+                <h1>Carrusel</h1>
+                <Carousel
+                    responsive={responsive}>
+                    <Playas/>
+                    <Playas/>
+                    <Playas/>
+                    <Playas/>
+                    <Playas/>
+                </Carousel>
+            </div>
+        </div>
     )
 }
