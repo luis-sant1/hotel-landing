@@ -21,10 +21,14 @@ export default function Reviews (){
             
             <div className="bg-brown">
             <IconBxsQuoteAltLeft/>
-                <p className="mb-10 pb-5 pr-5 pl-5 pt-0'">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit, consectetur nobis. Enim qui cumque dolores amet fugiat voluptatibus perspiciatis nostrum maiores magnam provident saepe consectetur quasi eaque alias, doloribus accusamus?</p>
+                <p className="mb-10 pb-5 font-light pr-5 pl-5 pt-0'">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit, consectetur nobis. Enim qui cumque dolores amet fugiat voluptatibus perspiciatis nostrum maiores magnam provident saepe consectetur quasi eaque alias, doloribus accusamus?</p>
                 <h2 className="text-2xl p-2"><span
                 className="font-thin font-lg p-5">@Username</span></h2>
             </div>
+
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+            </style>
         </div>
     )
 } 
