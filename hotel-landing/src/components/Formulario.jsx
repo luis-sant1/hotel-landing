@@ -185,7 +185,7 @@ export default function Formulario() {
                             <div className='w-98 p-4 my-2 text-sm text-white bg-red-500 text-center rounded-lg justify-center' >{error.msg}</div>
                         ))
                     }
-                    <div className='pt-3 grid justify-items-center'>
+                    <div className='pt-3 grid justify-items-center mb-4'>
                         <button type="submit" className='font-light bg-yellow-800 w-32 h-10 text-white text-2xl'>Reserva</button>
                     </div>
                 </form>

@@ -1,26 +1,22 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-// import Formulario from './components/Formulario'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Landing } from './components/Landing'
 import NavBar from './components/NavBar'
-// import Home from './components/Home'
-// import Info from './components/Info'
-import Footer from './components/Footer'
-function App() {
-  
-  return (
-    <div>
-      
-    <>
-    <NavBar/>
-    {/* <Home/> */}
-    {/* <Info/> */}
-    <Footer/>
-    {/* <Formulario />  */}
-    </>
+import Formulario from './components/Formulario'
+import ScrollToHashElement from './components/utils/ScrollToHashElement.js'
+import { AuthProvider } from './components/context/AuthContext.jsx'
 
+function App() {
+  return (
     
-    </div>
-     
+      <BrowserRouter>
+        <ScrollToHashElement />
+        <NavBar />
+        <Routes>
+          <Route path='/*' element={<Landing />} />
+          <Route path='/reservation-form' element={<Formulario />} />
+        </Routes>
+      </BrowserRouter>
+   
   )
 }
 

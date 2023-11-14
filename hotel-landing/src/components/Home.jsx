@@ -1,7 +1,15 @@
 
 import CarruselHome from "./CarruselHome/CarruselHome"
+import { useAuth } from "./context/AuthContext"
+import { useNavigate } from "react-router-dom"
 export default function Home() {
-    return(
+    const {setShow, show} = useAuth()
+    const navigate = useNavigate();
+    const toReservation = () => {
+        navigate('/reservation-form')
+        setShow(false)
+    }
+    return (
         <div className="bg-neutral-200 md:flex">
             <div className="md:flex lg:w-11/12">
                 <div className='w-11/12 mr-auto ml-auto md:pl-8 md:w-full lg:w-11/12 lg:pl-10'>
@@ -12,17 +20,19 @@ export default function Home() {
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis facilis veniam amet iste nesciunt ipsam soluta, ratione autem delectus saepe?</p>
                     </div>
                     <div className="md:pb-5">
-                    <button className='font-light bg-yellow-800 w-32 h-10 text-white text-2xl lg:w-44 lg:h-14'>¡Reserva ya!</button>
+                        <button
+                        onClick={toReservation}
+                        className='font-light bg-yellow-800 w-32 h-10 text-white text-2xl lg:w-44 lg:h-14 pb-1'>¡Reserva ya!</button>
                     </div>
                 </div>
             </div>
-            
-                <CarruselHome/>
 
-                <style>
+            <CarruselHome />
+
+            <style>
                 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
-                </style>
+            </style>
         </div>
-        
+
     )
 }
