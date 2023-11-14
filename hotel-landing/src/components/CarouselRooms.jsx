@@ -22,9 +22,9 @@ export default function CarouselRooms (){
         }
     };
     return(
-        <div className='flex w-full ' >
-            <div className='w-9/12  m-auto '>
-                <h1>Carrusel</h1>
+        <div className='flex w-full bg-neutral-200' >
+            <div className='w-9/12  m-auto pt-10 pb-10 md:pt-16'>
+                <h1 className='font-extralight pb-10 text-4xl md:text-6xl lg:text-7xl'>Habitaciones disponibles</h1>
                 <Carousel
                     responsive={responsive}>
                         <Rooms/>
@@ -36,6 +36,10 @@ export default function CarouselRooms (){
                         <Rooms/>
                 </Carousel>
             </div>
+
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+            </style>
         </div>
     )
 }
