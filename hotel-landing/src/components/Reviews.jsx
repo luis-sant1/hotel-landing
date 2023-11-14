@@ -14,16 +14,21 @@ function IconBxsQuoteAltLeft(props) {
     </svg>
   );
 }
-export default function Reviews (data){
-  console.log(data.data?.user.username)
+export default function Reviews (){
     return(
         <div className="m-4">
+            
+            
             <div className="bg-brown">
-            <IconBxsQuoteAltLeft/>
-                <p className="mb-10 pb-5 pr-5 pl-5 pt-0'">{data.data?.body}</p>
+            <IconBxsQuoteAltLeft className="text-white"/>
+                <p className="text-white mb-10 pb-5 font-light pr-5 pl-5 pt-0'">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit, consectetur nobis. Enim qui cumque dolores amet fugiat voluptatibus perspiciatis nostrum maiores magnam provident saepe consectetur quasi eaque alias, doloribus accusamus?</p>
                 <h2 className="text-2xl p-2"><span
-                className="font-thin font-lg p-5">@{data.data?.user.username}</span></h2>
+                className="font-thin font-lg p-5 text-white">@Username</span></h2>
             </div>
+
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+            </style>
         </div>
     )
 } 
