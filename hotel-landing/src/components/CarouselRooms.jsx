@@ -1,7 +1,7 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Playas from './Playas';
-export default function Carrusel() {
+import Rooms from './Rooms';
+export default function CarouselRooms (){
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -21,17 +21,19 @@ export default function Carrusel() {
             items: 1
         }
     };
-    return (
-        <div className='flex w-full' >
-            <div className='w-11/12 overflow-hidden m-auto'>
+    return(
+        <div className='flex w-full ' >
+            <div className='w-9/12  m-auto '>
                 <h1>Carrusel</h1>
                 <Carousel
                     responsive={responsive}>
-                    <Playas/>
-                    <Playas/>
-                    <Playas/>
-                    <Playas/>
-                    <Playas/>
+                        <Rooms/>
+                        <Rooms/>
+                        <Rooms/>
+                        <Rooms/>
+                        <Rooms/>
+                        <Rooms/>
+                        <Rooms/>
                 </Carousel>
             </div>
         </div>
