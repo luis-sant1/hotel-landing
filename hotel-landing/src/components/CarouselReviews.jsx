@@ -58,8 +58,8 @@ export default function CarouselReviews() {
                         <Carousel
                             responsive={responsive}>
                         {
-                            data?.map((e) => (
-                                <Reviews key = {e.id} data={e}/>
+                            data?.map((e, i) => (
+                                <Reviews key = {i} data={e}/>
                             ))
                         }
                         </Carousel>
