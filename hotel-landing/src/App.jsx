@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import NavBar from './components/NavBar'
 // import Home from './components/Home'
 // import Info from './components/Info'
-import Footer from './components/Footer'
+// import Footer from './components/Footer'
+import Playas from './components/Playas'
 function App() {
   
   return (
@@ -13,8 +14,9 @@ function App() {
     <>
     <NavBar/>
     {/* <Home/> */}
+    <Playas/>
     {/* <Info/> */}
-    <Footer/>
+    {/* <Footer/> */}
     {/* <Formulario />  */}
     </>
 
