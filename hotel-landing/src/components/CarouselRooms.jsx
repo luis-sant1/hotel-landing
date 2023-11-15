@@ -22,9 +22,9 @@ export default function CarouselRooms (){
         }
     };
     return(
-        <div className='flex w-full ' >
-            <div className='w-9/12  m-auto '>
-                <h1>Carrusel</h1>
+        
+            <div className='w-full  m-auto pt-10 pb-10 md:pt-16'>
+                
                 <Carousel
                     responsive={responsive}>
                         <Rooms/>
@@ -36,6 +36,7 @@ export default function CarouselRooms (){
                         <Rooms/>
                 </Carousel>
             </div>
-        </div>
+
+            
     )
 }
