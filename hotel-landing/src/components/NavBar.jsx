@@ -15,7 +15,7 @@ export default function NavBar() {
     }
 
     return (
-        <div className="w-full h-14 bg-[rgba(230,230,230,1)] flex">
+        <div className="w-full h-14 bg-[rgba(230,230,230,1)] flex fixed z-10">
             <div className="grid justify-self-start pl-8 pt-3 pb-3  ">
                 <button
                     onClick={toHome}
@@ -27,8 +27,8 @@ export default function NavBar() {
                     show && (
                         <>
                             <Link to='#info' className="hidden md:flex p-3 font-light text-2xl">Acerca de</Link>
-                            <Link to='#' className="hidden md:flex p-3 font-light text-2xl">Habitaciones</Link>
-                            <Link to='#' className="hidden md:flex p-3 font-light text-2xl">Playas</Link>   
+                            <Link to='#rooms' className="hidden md:flex p-3 font-light text-2xl">Habitaciones</Link>
+                            <Link to='#beachs' className="hidden md:flex p-3 font-light text-2xl">Playas</Link>   
                         </>
                     )
                 }
