@@ -39,10 +39,10 @@ export default function Formulario() {
         ;
     return (
 
-        <div className='h-full'>
-            <div className='mr-auto ml-auto w-11/12 md:w-7/12 lg:w-3/12'>
-                <form className='grid grid-cols-1 justify-center h-full' onSubmit={onSubmit}>
-                    <label htmlFor="" className='font-light pt-10'>Nombre</label>
+        <div className='h-full '>
+            <div className='mr-auto ml-auto w-11/12 md:w-7/12 lg:w-3/12 '>
+                <form className='grid grid-cols-1 justify-center h-full ' onSubmit={onSubmit} >
+                    <label htmlFor="" className='font-light pt-10 mt-[40px]'>Nombre</label>
                     <div className='pt-1'>
                         <input type="text"
                             {...register('name', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}

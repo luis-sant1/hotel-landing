@@ -13,7 +13,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path='/*' element={<Landing />} />
-            <Route path='/reservation-form' element={<Formulario />} />
+            <Route path='/reservation-form' element={<Formulario/>} />
            
           </Routes>
         </BrowserRouter>
