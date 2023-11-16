@@ -1,10 +1,19 @@
-export default function Playas (){
-    return(
-        <div className="m-7">
+import { Link } from "react-router-dom"
+export default function Playas() {
+    return (
+        <div className="m-7 relative text-white ">
             <img src="https://thehoughtonhotel.com/wp-content/uploads/2023/04/LUXURY-APART-HOTEL-STUDIO-600x600.jpg" alt="" />
-            <div className="bg-brown">
-                <h2 className="text-2xl p-2 font-light text-white">Título</h2>
+            <div className="bg-brown absolute bottom-0 left-0 w-full text-white flex flex-wrap justify-center  group transition-all hover:h-[150px] h-[50px]">
+                <h2 className="text-2xl p-2 font-light text-white w-full group">Título</h2>
+                <p className="text-white font-light pl-2 pb-2 hidden top-12 left-0 group-hover:flex">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum ex consectetur velit iusto quaerat saepe, provident <span className="font-bold"></span></p>
+                <div className="w-[60px] flex justify-center 	">
+                    <Link to='#'
+                        className="width-[50]"><span className="text-lg relative after:bg-white after:absolute after:h-0.5 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transitiz on-all after:duration-300 cursor-pointer hidden group-hover:flex ">Ver mas</span>
+                    </Link>
+                </div>
             </div>
+
+
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
             </style>
