@@ -29,7 +29,7 @@ const createUser = async (req, res) => {
         console.log({ document: newUser.toJSON() });
         const token = await tokenSign(newUser);
         const data = {
-            token: token,                    // Generar un token con la data del user.
+            token: token,                                           // Generar un token con la data del user.
             user: userSaved                                       // User
         }
         const rol = userSaved.role.toString()
