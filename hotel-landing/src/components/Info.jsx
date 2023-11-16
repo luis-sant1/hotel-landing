@@ -1,9 +1,39 @@
+import { motion, useInView, useAnimation } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+
 export default function Info() {
+    const ref = useRef(null)
+    const isInView = useInView(ref, {once: true})
+    const mainControls = useAnimation()
+    
+    useEffect(() => {
+       if (isInView) {
+        mainControls.start("visible")
+       }
+    }, [isInView])
+
     return(
         <div className="bg-[rgba(230,230,230,1)] w-full h-full pt-20 pb-10 md:flex lg:pb-20" id="info">
             <div className="w-11/12 mr-auto ml-auto" >
-                <div><h1 className="text-5xl font-extralight md:text-6xl lg:pl-5 lg:text-6xl"  >Acerca de nosotros</h1></div>
-                <div className="pt-12 md:flex ">
+                <motion.div 
+                variants={{
+                    hidden: { opacity: 0 },
+                    visible: {opacity: 1}
+                }}
+                initial="hidden"
+                animate={mainControls}
+                transition={{ duration: 1, delay: 0.25}}>
+                <div ref={ref} ><h1 className="text-5xl font-extralight md:text-6xl lg:pl-5 lg:text-6xl"  >Acerca de nosotros</h1></div>
+                </motion.div>
+                <motion.div 
+                variants={{
+                    hidden: { opacity: 0 },
+                    visible: {opacity: 1}
+                }}
+                initial="hidden"
+                animate={mainControls}
+                transition={{ duration: 1, delay: 0.5}}>
+                <div ref={ref} className="pt-12 md:flex ">
                     <div className="border-b border-bottom-width: 1px; border-black border-solid pl-5 md:w-1/2 md:border-b-0 md:border-r md:pt-10 md:pr-10 lg:pl-14">
                         <p className="text-lg font-light pb-5 lg:text-xl">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae, sunt repellendus? Nisi et molestias fugiat alias beatae voluptatem officiis facilis autem quam explicabo quo ratione asperiores unde ad, itaque aspernatur quas maiores odio rem excepturi aliquid? Quo ex maxime id.</p>
                         <p className="text-lg font-light pb-7 lg:text-xl">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo nesciunt quia qui tempora voluptatem, porro voluptate voluptatum saepe incidunt enim aut nulla quibusdam eum praesentium?</p>
@@ -26,6 +56,7 @@ export default function Info() {
                         </ul>
                     </div>
                 </div>
+                </motion.div>
             </div>
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
