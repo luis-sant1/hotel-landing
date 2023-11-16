@@ -1,6 +1,7 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Playas from './Playas';
+import CurrentClimate from './CurrentClimate';
 export default function Carrusel() {
     const responsive = {
         superLargeDesktop: {
@@ -22,20 +23,17 @@ export default function Carrusel() {
         }
     };
     return (
-        
-            
-                <div className='w-fulloverflow-hidden m-auto'>
-                    
-                    <Carousel
-                        responsive={responsive}>
-                        <Playas/>
-                        <Playas/>
-                        <Playas/>
-                        <Playas/>
-                        <Playas/>
-                    </Carousel>
-                </div>
-          
-            
+
+
+        <div className='w-fulloverflow-hidden m-auto'>
+
+            <Carousel
+                responsive={responsive}>
+                <Playas />  
+                <CurrentClimate />
+            </Carousel>
+        </div>
+
+
     )
 }

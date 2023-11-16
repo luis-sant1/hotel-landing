@@ -4,7 +4,7 @@ import Reviews from './Reviews';
 import { comments } from '../api/requests'
 import { useEffect, useState } from 'react';
 export default function CarouselReviews() {
-    const [data, setData] = useState({})
+    const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -15,7 +15,6 @@ export default function CarouselReviews() {
       })
     }, [])
 
-    console.log(data)
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.

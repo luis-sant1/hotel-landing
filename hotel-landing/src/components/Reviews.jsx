@@ -14,8 +14,7 @@ function IconBxsQuoteAltLeft(props) {
     </svg>
   );
 }
-export default function Reviews (data){
-  console.log(data.data?.user.username)
+export default function Reviews (data){ 
     return(
         <div className="m-4">
             <div className="bg-brown">
