@@ -21,10 +21,10 @@ export default function Home() {
                 transition={{duration: 1, delay: 0.1}}
                 >
                 <div className='pt-10 pb-10 w-full md:pt-20 md:pb-20'>
-                        <h1 className='font-light text-5xl md:text-7xl lg:text-8xl mt-[40px]'>Esto es un titulo y es increible</h1>
+                        <h1 className='font-light text-5xl md:text-7xl lg:text-8xl mt-[40px]'>Pásala bien junto a tu Familia en Perubiam, tu segundo Hogar.</h1>
                     </div>
-                    <div className='w-10/12 pb-20 md:pb-28 lg:pb-52'>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis facilis veniam amet iste nesciunt ipsam soluta, ratione autem delectus saepe?</p>
+                    <div className='w-10/12 pb-20 md:pb-28 lg:pb-52 text-lg'>
+                        <p>¡Terminan las clases y llega la navidad junto a nuestra nueva promoción del 10% en todas nuestras habitaciones para que te des un merecido descanso junto a tu familia disfrutando de unas vacaciones sin igual!</p>
                     </div>
                 </motion.div>
                 <motion.div 

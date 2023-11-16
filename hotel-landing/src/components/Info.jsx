@@ -35,14 +35,14 @@ export default function Info() {
                 transition={{ duration: 1, delay: 0.5}}>
                 <div ref={ref} className="pt-12 md:flex ">
                     <div className="border-b border-bottom-width: 1px; border-black border-solid pl-5 md:w-1/2 md:border-b-0 md:border-r md:pt-10 md:pr-10 lg:pl-14">
-                        <p className="text-lg font-light pb-5 lg:text-xl">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae, sunt repellendus? Nisi et molestias fugiat alias beatae voluptatem officiis facilis autem quam explicabo quo ratione asperiores unde ad, itaque aspernatur quas maiores odio rem excepturi aliquid? Quo ex maxime id.</p>
-                        <p className="text-lg font-light pb-7 lg:text-xl">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo nesciunt quia qui tempora voluptatem, porro voluptate voluptatum saepe incidunt enim aut nulla quibusdam eum praesentium?</p>
+                        <p className="text-lg font-light pb-5 lg:text-xl">Somos un hotel con una valoración de 5 estrellas ubicado en Tucacas estado Falcón, es pacíficamente en Mar Leon, Tucacas 2055, Falcón, en nuestra ciudad podrás disfrutar de las mejores playas de Venezuela y estamos seguros que podemos asegurar también que son de las mejores del mundo entero. </p>
+                        <p className="text-lg font-light pb-7 lg:text-xl">Contamos con 5 tipos de habitaciones distintas que van desde habitaciones matrimoniales, hasta habitaciones para 6 personas, contamos con restaurante, piscina y barras de bebidas, para que tengas una experiencia inolvidable en nuestras instalaciones de Perubiam Hotel Suites, donde tu comodidad y confort es nuestra prioridad.</p>
                     </div>
                     <div className="pt-7 md:w-1/2 md:pt-10 md:pl-10 lg:pl-14">
                         <h1 className="text-3xl font-light pb-5 pl-5 lg:text-4xl">Horarios</h1>
                         <ul className="list-disc pl-16">
                             <li className="font-light text-lg lg:text-xl">Check-in: 1PM</li>
-                            <li className="font-light text-lg lg:text-xl">Check-in: 12PM</li>
+                            <li className="font-light text-lg lg:text-xl">Check-out: 12PM</li>
                             <li className="font-light text-lg lg:text-xl">Piscina: 10AM-10PM</li>
                             <li className="font-light text-lg lg:text-xl">Restaurant: 8AM-11PM</li>
                             <li className="font-light text-lg lg:text-xl">Barra de bebidas: 8AM-11PM</li>
