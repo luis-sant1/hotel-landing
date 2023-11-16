@@ -24,7 +24,7 @@ export default function Home() {
                         <h1 className='font-light text-5xl md:text-7xl lg:text-8xl mt-[40px]'>Pásala bien junto a tu Familia en Perubiam, tu segundo Hogar.</h1>
                     </div>
                     <div className='w-10/12 pb-20 md:pb-28 lg:pb-52 text-lg'>
-                        <p>¡Terminan las clases y llega la navidad junto a nuestra nueva promoción del 10% en todas nuestras habitaciones para que te des un merecido descanso junto a tu familia disfrutando de unas vacaciones sin igual!</p>
+                        <p>¡Terminan las clases y llega la navidad junto a nuestra nueva promoción del 10% para nuestras habitaciones de 4 personas para que te des un merecido descanso junto a tu familia disfrutando de unas vacaciones sin igual!</p>
                     </div>
                 </motion.div>
                 <motion.div 
