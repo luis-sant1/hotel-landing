@@ -52,7 +52,7 @@ const loginUser = async (req, res) => {
         }).select('password name role email');                              // Aplicamos el filtro select para poder ver estos datos
 
         if (!user) {                                                        // Comprobamos que haya un usuario con ese email.
-            return res.status(400).json({ error: ['Usuario no encontrado.'] });
+            return res.status(400).json({ error: ['E-mail o contraseña incorrecta.'] });
         }
 
         const hashPassword = user.get('password');                           // Obtener password.
