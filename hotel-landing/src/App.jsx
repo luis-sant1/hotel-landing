@@ -8,6 +8,7 @@ import EditPlaForm from './components/EditPlaForm.jsx'
 import CreatePlaForm from './components/CreatePlaForm.jsx'
 import CreateReview from './components/CreateReview.jsx'
 import EditRooms from './components/EditRooms.jsx'
+import RoomsViews from './components/RoomsViews.jsx'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path='/create-pla-form' element={<CreatePlaForm/>} />
             <Route path='/create-review' element={<CreateReview/>} />
             <Route path='/edit-rooms' element={<EditRooms/>} />
+            <Route path='/rooms-views' element={<RoomsViews/>} />
             
            
           </Routes>
