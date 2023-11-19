@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from 'react-hook-form'
 import { AuthContext, useAuth } from "../components/context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Iniciarsesion({toPage, setPage}) {
+    const navigate = useNavigate()
     const { signin, error, isAuthenticated } = useAuth()
     const { register, handleSubmit, formState: {
         errors                                                  // Errores del formState
@@ -10,6 +12,7 @@ export default function Iniciarsesion({toPage, setPage}) {
     const onSubmit = handleSubmit(
         (user) => {
             signin(user)
+            navigate('/*')
         }
     )
  
