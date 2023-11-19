@@ -12,8 +12,8 @@ export default function Home() {
         setShow(false)
     }
     return (
-        <div className="bg-[rgba(230,230,230,1)] md:flex">
-            <div className="md:flex lg:w-11/12">
+        <div className="bg-[rgba(230,230,230,1)] lg:flex">
+            <div className="lg:flex lg:w-11/12">
                 <div className='w-11/12 mr-auto ml-auto md:pl-8 md:w-full lg:w-11/12 lg:pl-10'>
                 <motion.div 
                 initial={{ opacity: 0 }}
@@ -21,7 +21,7 @@ export default function Home() {
                 transition={{duration: 1, delay: 0.1}}
                 >
                 <div className='pt-10 pb-10 w-full md:pt-20 md:pb-20'>
-                        <h1 className='font-light text-5xl md:text-7xl lg:text-8xl mt-[40px]'>Pásala bien junto a tu Familia en Perubiam, tu segundo Hogar.</h1>
+                        <h1 className='font-light text-5xl md:text-6xl lg:text-7xl mt-[40px]'>Pásala bien junto a tu Familia en Perubiam, tu segundo Hogar.</h1>
                     </div>
                     <div className='w-10/12 pb-20 md:pb-28 lg:pb-52 text-lg'>
                         <p>¡Terminan las clases y llega la navidad junto a nuestra nueva promoción del 10% para nuestras habitaciones de 4 personas para que te des un merecido descanso junto a tu familia disfrutando de unas vacaciones sin igual!</p>

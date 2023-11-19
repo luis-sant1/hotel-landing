@@ -37,7 +37,6 @@ export default function CarouselReviews() {
     return (
         <div className='flex w-full ' >
             <div className='w-9/12  m-auto '>
-                <h1>Carrusel</h1>
                 {
                     loading && (
                         <>
