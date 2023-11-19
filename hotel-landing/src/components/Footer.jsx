@@ -27,6 +27,8 @@ export default function Footer() {
                         </div>
                         
                     </div>
+
+                    {/* contenedor de los botones de imiciar y cerrar sesion */}
                     <div>
                         <div className="pt-2 pb-1 flex justify-center md:pb-2">
                             <button className="font-light text-xs">Inicia sesión como administrador</button>
@@ -35,6 +37,8 @@ export default function Footer() {
                             <button className="font-light text-xs">Logout</button>
                         </div>
                     </div>
+                    {/* aqui terminan los botones */}
+
                     <div className="pt-2 pb-4 flex justify-center md:pt-3 md:pb-5">
                         <p className="font-light text-xs">Todos los derechos reservados</p>
                     </div>
