@@ -27,7 +27,15 @@ export default function Footer() {
                         </div>
                         
                     </div>
-                    <div className="pt-2 pb-4 flex justify-center md:pt-5 md:pb-5">
+                    <div>
+                        <div className="pt-2 pb-1 flex justify-center md:pb-2">
+                            <button className="font-light text-xs">Inicia sesión como administrador</button>
+                        </div>
+                        <div className="pt-2 pb-1 flex justify-center md:pb-2">
+                            <button className="font-light text-xs">Logout</button>
+                        </div>
+                    </div>
+                    <div className="pt-2 pb-4 flex justify-center md:pt-3 md:pb-5">
                         <p className="font-light text-xs">Todos los derechos reservados</p>
                     </div>
                 </div>
