@@ -10,7 +10,7 @@ export default function CreateRooms() {
         stars: "",
         imagen: null,
         promo: "",
-        modcons: ""
+        modcons: [""]
     })
     const handleChange = ({ currentTarget: input }) => { // Entrada de datos en los inputs
         setData({ ...data, [input.name]: input.value });
@@ -21,7 +21,7 @@ export default function CreateRooms() {
     };
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // console.log(data);
+        console.log(data);
         let body = new FormData()
         data.imagen = data.imagen !== null && (body.append('imagen', data.imagen))
         data.title = data.title !== '' && (body.append('title', data.title))
@@ -55,15 +55,16 @@ return (
 
     <div className='h-full '>
         <div className='mr-auto ml-auto w-11/12 md:w-7/12 lg:w-3/12 '>
-            <form className='grid grid-cols-1 justify-center h-full '>
+            <form className='grid grid-cols-1 justify-center h-full ' onSubmit={handleSubmit}>
                 <label htmlFor="" className='font-light pt-10 mt-[40px]'>title de la habitación</label>
                 <div className='pt-1'>
                     <input type="text"
                         // {...register('titel', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
                         className='font-light w-full border border-solid border-black grid h-10 p-2' 
-                        name= ""
+                        name= "title"
                         onChange = {handleChange}
                         value={data.title}/>
+                        
                 </div>
                 {/* {
                         errors.title && (
@@ -80,7 +81,7 @@ return (
                     <input type="text"
                         // {...register('promo', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
                         className='font-light w-full border border-solid border-black grid h-10 p-2'
-                        name= ""
+                        name= "promo"
                         onChange = {handleChange}
                         value={data.promo} />
                     {/* {
@@ -100,7 +101,7 @@ return (
                     <input type="text"
                         // {...register('description', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
                         className='font-light w-full border border-solid border-black grid h-10 p-2' 
-                        name= ""
+                        name= "description"
                         onChange = {handleChange}
                         value={data.description}/>
                     {/* {
@@ -120,7 +121,7 @@ return (
                     <input type="text"
                         // {...register('price', { required: true, minLength: 2, maxLength: 4, })}
                         className='font-light w-full border border-solid border-black grid h-10 p-2' 
-                        name= ""
+                        name= "price"
                         onChange = {handleChange}
                         value={data.price}/>
                 </div>
@@ -140,7 +141,7 @@ return (
                     <input type="text"
                         // {...register('stars', { required: true, minLength: 1, maxLength: 1, })}
                         className='font-light w-full border border-solid border-black grid h-10 p-2' 
-                        name= ""
+                        name= "stars"
                         onChange = {handleChange}
                         value={data.stars}/>
                 </div>
@@ -160,9 +161,9 @@ return (
                     <input type="text"
                         // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
                         className='font-light w-full border border-solid border-black grid h-10 p-2' 
-                        name= ""
+                        name= "modcons"
                         onChange = {handleChange}
-                        value={data.}/>
+                        value={data.modcons}/>
                     {/* {
                             errors.modcons && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -180,9 +181,9 @@ return (
                     <input type="text"
                         // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
                         className='font-light w-full border border-solid border-black grid h-10 p-2' 
-                        name= ""
+                        name= "modcons"
                         onChange = {handleChange}
-                        value={data.}/>
+                        value={data.modcons}/>
                     {/* {
                             errors.modcons && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -200,9 +201,9 @@ return (
                     <input type="text"
                         // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
                         className='font-light w-full border border-solid border-black grid h-10 p-2' 
-                        name= ""
+                        name= "modcons"
                         onChange = {handleChange}
-                        value={data.}/>
+                        value={data.modcons}/>
                     {/* {
                             errors.modcons && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -220,9 +221,9 @@ return (
                     <input type="text"
                         // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
                         className='font-light w-full border border-solid border-black grid h-10 p-2' 
-                        name= ""
+                        name= "modcons"
                         onChange = {handleChange}
-                        value={data.}/>
+                        value={data.modcons}/>
                     {/* {
                             errors.modcons && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -240,9 +241,9 @@ return (
                 <div className="pt-2">
                     <input type="file" className="fo
                     nt-light" 
-                    name= ""
-                    onChange = {handleChange}
-                    value={data.}/>
+                    name= "modcons"
+                    onChange = {handleImg}
+                    value={data.imagen}/>
                 </div>
 
                 <div className='pt-5 grid justify-items-center mb-4'>
