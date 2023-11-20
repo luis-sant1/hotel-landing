@@ -24,10 +24,10 @@ const roomModel = Schema({
         secure_url: String,
         default: null
     },
-    review: {
-        type: Array,
-        default: []
-    },
+    review: 
+        [{type: mongoose.Schema.Types.ObjectId,
+        ref: "Reviews"}]
+    ,
     promo:{
         type: String,
     },

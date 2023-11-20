@@ -4,7 +4,7 @@ const {getAll, createRooms, roomAndReviews} = require('../controllers/roomsContr
 
 router
 // .get('/getRooms', getAll )
-.get('/create', createRooms )
+.post('/create', createRooms )
 .get('/getRooms', roomAndReviews)
 
 module.exports = router;

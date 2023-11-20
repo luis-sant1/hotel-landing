@@ -1,6 +1,7 @@
+import Cookies from 'js-cookie'
 import { createContext, useContext, useState, useEffect} from "react";
-import { login } from "../../api/requests";
-
+import {   logout } from "../../api/requests";
+import { login, verify } from '../../api/reqCredentials';
 export const AuthContext = createContext();
 export const useAuth = () => {                           // Usa el contexto 
     const context = useContext(AuthContext)
@@ -15,13 +16,14 @@ export const AuthProvider = ({ children }) => {
     const [show, setShow] = useState(true)
     const [user, setUser] = useState(null)
     const [adminAuth, setAdminAuth] = useState(false)
-    const [isAuthenticated, setIsAuthenticated] = useState(false) 
+    const [isAuthenticated, setIsAuthenticated] = useState(null) 
     const [error, setError] = useState("")
 
     const signin = async (user) => {
         try {
             console.log(user)
             const res = await login(user)
+            console.log(res)
             const userRole = res.data.user.user.role[0].toString()
             console.log(userRole)
             if (userRole === 'admin') {
@@ -40,43 +42,14 @@ export const AuthProvider = ({ children }) => {
     }
     const LogOut = async () => {
         try {
-            const res = await axios.post(logout)
+            const res = await logout()
             console.log(res)
             setIsAuthenticated(false)
-            window.location.href = "home"
+            window.location.href = "/*"
         } catch (error) {
             console.log(error)
         }
     }
-
-    useEffect(() => {
-        const validate = async (user) => {
-            const cookies = Cookies.get()                                   // Revisamos si tenemos cookies
-            if (!cookies.token) {
-                setAdminAuth(false)                                                                      // Si no hay token
-                setIsAuthenticated(false)
-                setUser(null)
-                return;
-            }
-            // si existe token en las cookies
-            try {
-                const res = await axios.get(verify, cookies.token);             // lo verificamos
-                console.log(res)
-                if (!res.data) setIsAuthenticated(false)                        // De no serverificado
-                if (cookies.rol == "admin") setAdminAuth(true)                        
-
-                setIsAuthenticated(true);                                       // SI pasa el test del backend..
-                setUser(res.data);
-
-            } catch (error) {
-                setIsAuthenticated(false)                                       // si ocurre un error.
-                setUser(null)
-            }
-
-        }
-        validate(); // EJECUTA
-    }, [])
-
     useEffect(() => {                                                   // TIMER PARA LIMPIAR LOS ERRORES
         if (error != "") {
             const timer = setTimeout(() => {
@@ -85,6 +58,40 @@ export const AuthProvider = ({ children }) => {
             return () => clearTimeout(timer)                           // Eliminamos después de ejecutar (evita consumo extra de recursos)
         }
     }, [error])
+
+    console.log(isAuthenticated)
+    useEffect(() => {
+        const validate = async () => {
+            const cookies = Cookies.get()   
+            console.log(cookies.token)                                // Revisamos si tenemos cookies
+            if (!cookies.token) {
+                setAdminAuth(false)                                                                      // Si no hay token
+                setIsAuthenticated(false)
+                setUser(null)
+                return;
+            }
+            // si existe token en las cookies
+            try {
+                const res = await verify(cookies.token);             // lo verificamos
+                console.log(res)
+                if (!res.data) setIsAuthenticated(false)                        // De no serverificado
+                if (cookies.rol == "admin") setAdminAuth(true)                        
+
+                setIsAuthenticated(true);                                       // SI pasa el test del backend..
+                setUser(res.data);
+
+            } catch (error) {
+                console.log(error)
+                setIsAuthenticated(false)                                       // si ocurre un error.
+                setUser(null)
+            }
+
+        }
+        validate(); // EJECUTA
+    }, []);
+
+
+    
     return (
         <AuthContext.Provider value={{ //Export 
             setShow,

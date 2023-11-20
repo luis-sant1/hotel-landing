@@ -35,7 +35,7 @@ const createUser = async (req, res) => {
         const rol = userSaved.role.toString()
         console.log(token)
         res.cookie("token", token)                                       // Guardar token como un a cookie
-        res.cookie("rol", rol )
+        res.cookie("rol", rol)
         res.json({ user: data });
         // res.send("registrando")
     } catch (error) {
@@ -66,11 +66,11 @@ const loginUser = async (req, res) => {
             token: token,
             user
         }
-        user.set('password', undefined, { strict: false });   
+        user.set('password', undefined, { strict: false });
         const rol = user.role.toString()              // Vuelve a setear la password para que no pase al front.
         console.log(token);
         res.cookie("token", token)                                       // Guardar token como un a cookie
-        res.cookie("rol", rol )
+        res.cookie("rol", rol)
         console.log(rol)
         res.status(200).json({
             user: data
@@ -137,17 +137,17 @@ const deleteUser = async (req, res) => {
 }
 
 const addToFav = async (req, res) => {
-    try{
-        const {_id} = req.params
+    try {
+        const { _id } = req.params
         const existingUser = await UserSchema.findById(_id);
-        if(!existingUser){
-            return res.status(500).json({error: 'No se puede encontrar usuario especificado.'})    // Validamos si existe usuario con ese id.
+        if (!existingUser) {
+            return res.status(500).json({ error: 'No se puede encontrar usuario especificado.' })    // Validamos si existe usuario con ese id.
         }
-        const user = await UserSchema.updateOne({_id, favoritos: [] })
+        const user = await UserSchema.updateOne({ _id, favoritos: [] })
         return res.status(200).json({
             user: user
         })
-    }catch(error){
+    } catch (error) {
         return res.status(500).json({
             error: "Error al añadir en favoritos."
         })
@@ -155,26 +155,23 @@ const addToFav = async (req, res) => {
 }
 
 const verify = async (req, res) => {
-    const { token } = req.cookies['token'];
-    if (!token) return res.send(false);
-
-    jwt.verify(token, TOKEN_SECRET, async (error, user) => {
-        if (error) return res.sendStatus(401);
-
-        const userFound = await User.findById(user.id);
-        if (!userFound) return res.sendStatus(401);
-
-        return res.json({
-            id: userFound._id,
-            username: userFound.username,
-            email: userFound.email,
-        });
-    });
-
+    try {
+        const { token } = req.cookies;
+        if (!token) return res.send(false);
+        const respond = await verifyToken(token)
+        res.status(200).json({
+            respond: respond,
+            email: req.email
+        })
+    } catch (error) {
+        res.status(400).json({
+            error: JSON.stringify(error)
+        })
+    }
 }
 
-const logout = async (req, res ) => {
-    res.cookie("token", "",{
+const logout = async (req, res) => {
+    res.cookie("token", "", {
         httpOnly: true,
         secure: true,
         expires: new Date(0)

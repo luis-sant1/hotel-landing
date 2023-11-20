@@ -3,15 +3,10 @@ import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "./context/AuthContext";
 
 export default function NavBar() {
-    const {setShow, show} = useAuth()
+    const {setShow, show} = useAuth(true)
     const navigate = useNavigate();
     const toReservation = () => {
         navigate('/reservation-form')
-        setShow(false)
-    }
-
-    const toView = () => {
-        navigate('/rooms-views')
         setShow(false)
     }
 
@@ -35,13 +30,13 @@ export default function NavBar() {
                             <Link to='#info' className="hidden md:flex p-3 font-light text-2xl">Acerca de</Link>
                             <Link to='#rooms' className="hidden md:flex p-3 font-light text-2xl">Habitaciones</Link>
                             <form action="" className="hidden md:flex md:pt-1 h-12 bg-[rgba(230,230,230,1)]">
-                                <select name="sexo" id="" onChange={toView} className="font-light text-xl">
-                                    <option value="" disabled selected className="font-light">Disponibles</option>
-                                    <option value="" onClick={toView} className="font-light">Habitación para 2</option>
-                                    <option value="" onClick className="font-light">Habitación para 3</option>
-                                    <option value="" onClick className="font-light">Habitación para 4</option>
-                                    <option value="" onClick className="font-light">Habitación para 5</option>
-                                    <option value="" onClick className="font-light">Habitación para 6</option>
+                                <select name="" id="" className="font-light text-xl">
+                                    <option disabled className="font-light">Disponibles</option>
+                                    <option value="2 Personas"  className="font-light">Habitación para 2</option>
+                                    <option value="3 Personas"  className="font-light">Habitación para 3</option>
+                                    <option value="4 Personas"  className="font-light">Habitación para 4</option>
+                                    <option value="5 Personas"  className="font-light">Habitación para 5</option>
+                                    <option value="6 Personas"  className="font-light">Habitación para 6</option>
                                 </select>
                             </form>
                             <Link to='#beachs' className="hidden md:flex p-3 font-light text-2xl">Playas</Link>   

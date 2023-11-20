@@ -1,29 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from 'react-hook-form'
-import { AuthContext, useAuth } from "../components/context/AuthContext";
+import {  useAuth } from "../components/context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-export default function Iniciarsesion({toPage, setPage}) {
+export default function Iniciarsesion({ toPage, setPage }) {
     const navigate = useNavigate()
     const { signin, error, isAuthenticated } = useAuth()
     const { register, handleSubmit, formState: {
         errors                                                  // Errores del formState
     } } = useForm();
+
     const onSubmit = handleSubmit(
-        (user) => {
-            signin(user)
-            navigate('/*')
+        async (user) => {
+            await signin(user)
         }
     )
- 
-    useEffect(() => {
-        if (isAuthenticated) {
-            setPage("home")
-            toPage()
-        }                                                            // Redireccionamos al usuario si isAuthenticated = true
 
-    }, [isAuthenticated])
-    
     return (
         <div className='h-full '>
             <div className="mr-auto ml-auto w-11/12 md:w-7/12 lg:w-3/12 ">
@@ -80,7 +72,7 @@ export default function Iniciarsesion({toPage, setPage}) {
                         error != undefined ? error && <div className='w-98 p-4 my-2 text-sm text-white bg-red-500 text-center rounded-lg justify-center' >{error}</div> : <div className='w-98 p-4 my-2 text-sm text-white bg-red-500 text-center rounded-lg justify-center' >Datos invalidos</div>
 
                     }
-                
+
                     <div className='pt-10 grid justify-items-center mb-4'>
                         <button type="submit" className="font-light bg-yellow-800 w-32 h-10 text-white text-2xl">
                             Iniciar Sesión
