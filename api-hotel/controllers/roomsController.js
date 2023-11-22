@@ -140,14 +140,14 @@ const roomAndReviews = async (req, res) => {
 const deleteRoom = async (req, res) => {
     try {
        const id = req.params._id;
-       const room = await prSchema.findByIdAndDelete(id)
+       const room = await roomSchema.findByIdAndDelete(id)
  
        if (!room) return res.status(404).json({messageError: 'Invalid room'})
  
        await deleteImage(room.imagen.public_id)
-       return res.status(204).send({message: "Room has been romeved"})
+       return res.status(200).json({message: "Room has been romeved"})
     } catch (error) {
-       return res.status(404).json({messageError: error.message});
+       return res.status(404).json({messageError: error});
     }
  }
 

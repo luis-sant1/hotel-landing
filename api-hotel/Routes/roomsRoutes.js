@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const {getAll, createRooms, roomAndReviews, editRoom, oneRoom} = require('../controllers/roomsController')
+const {getAll, createRooms, roomAndReviews, editRoom, oneRoom, deleteRoom} = require('../controllers/roomsController')
 const { upload } = require('../controllers/uploadController');
 
 router
@@ -9,5 +9,6 @@ router
 .get('/getRooms', roomAndReviews)
 .put('/editRooms/:_id', upload.single("imagen"), editRoom)
 .get('/getRoom/:_id',  oneRoom)
+.delete('/deleteRoom/:_id',  deleteRoom)
 
 module.exports = router;
