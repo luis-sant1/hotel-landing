@@ -39,14 +39,14 @@ export default function Formulario() {
         ;
     return (
 
-        <div className='h-full dark:bg-gray-800 pb-56'>
+        <div className='h-full dark:bg-gray-800 pb-56 bg-white'>
             <div className='mr-auto ml-auto w-11/12 md:w-7/12 lg:w-3/12 '>
                 <form className='grid grid-cols-1 justify-center h-full ' onSubmit={onSubmit} >
-                    <label htmlFor="" className='font-light pt-10 mt-[40px] dark:text-white'>Nombre</label>
+                    <label htmlFor="" className='font-light pt-10 mt-[40px] dark:text-white text-black'>Nombre</label>
                     <div className='pt-1'>
                         <input type="text"
                             {...register('name', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2' />
+                            className='text-black font-light w-full border border-solid border-black grid h-10 p-2' />
                     </div>
                     {
                         errors.name && (
@@ -58,11 +58,11 @@ export default function Formulario() {
                             </div>
                         )
                     }
-                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Primer Apellido</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Primer Apellido</label>
                     <div className='pt-1'>
                         <input type="text"
                             {...register('lastName', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2' />
+                            className='text-black font-light w-full border border-solid border-black grid h-10 p-2' />
                         {
                             errors.lastName && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -74,11 +74,11 @@ export default function Formulario() {
                             )
                         }
                     </div>
-                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Correo Electronico</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Correo Electronico</label>
                     <div className='pt-1'>
                         <input type="text"
                             {...register('email', { required: true, minLength: 4, maxLength: 90, pattern: /^\S+@\S+\.\S+$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2' />
+                            className='text-black font-light w-full border border-solid border-black grid h-10 p-2' />
                     </div>
                     {
                         errors.email && (
@@ -92,17 +92,17 @@ export default function Formulario() {
                     }
                     <div className='pt-1'>
                         <div className='grid grid-cols-2 pt-1 '>
-                            <label htmlFor="" className='font-light dark:text-white'>Fecha de entrada</label>
-                            <label htmlFor="" className='font-light dark:text-white'>Fecha de salida</label>
+                            <label htmlFor="" className='font-light dark:text-white text-black'>Fecha de entrada</label>
+                            <label htmlFor="" className='font-light dark:text-white text-black'>Fecha de salida</label>
                         </div>
 
                         <div className='grid grid-cols-2 '>
                             <input type="date"
                                 {...register('entryDate', { required: true })}
-                                className='font-light h-10 w-8/12 border border-solid border-black p-2' />
+                                className='text-black font-light h-10 w-8/12 border border-solid border-black p-2' />
                             <input type="date"
                                 {...register('exitDate', { required: true })}
-                                className='font-light h-10 w-8/12 border border-solid border-black p-2' />
+                                className='text-black font-light h-10 w-8/12 border border-solid border-black p-2' />
                         </div>
                         {
                             errors.entryDate || errors.exitDate ? (
@@ -117,11 +117,11 @@ export default function Formulario() {
                     </div>
 
 
-                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Número de teléfono</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Número de teléfono</label>
                     <div className='pt-1'>
                         <input type="text"
                             {...register('phone', { required: true, minLength: 9, maxLength: 9, })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2' />
+                            className='text-black font-light w-full border border-solid border-black grid h-10 p-2' />
                     </div>
                     {
                         errors.phone && (
@@ -133,11 +133,11 @@ export default function Formulario() {
                             </div>
                         )
                     }
-                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Dirección</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Dirección</label>
                     <div className='pt-1'>
                         <input type="text"
                             {...register('address', { required: true, minLength: 3, maxLength: 120, })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2' />
+                            className='text-black font-light w-full border border-solid border-black grid h-10 p-2' />
                     </div>
                     {
                         errors.address && (
@@ -149,11 +149,11 @@ export default function Formulario() {
                             </div>
                         )
                     }
-                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Habitaciones disponibles:</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Habitaciones disponibles:</label>
                     <div className='pt-1'>
                         <select
                             {...register('room', { required: true })}
-                            className='font-light h-10 w-full border border-solid border-black p-2'>
+                            className='font-light h-10 w-full border border-solid border-black p-2 text-black'>
                             <option value="" className='font-light'>Seleccionar:</option>
                             <option value="Matrimonial" className='font-light'>Habitación matrimonial</option>
                             <option value="3 Personas" className='font-light'>Habitación para 3 personas</option>
@@ -177,7 +177,7 @@ export default function Formulario() {
                             {...register('check', { required: true })}
                             type="checkbox" className='h-5 w-5' />
                         <div className=''>
-                            <label htmlFor="" className='font-light pl-2 dark:text-white'>
+                            <label htmlFor="" className='font-light pl-2 dark:text-white text-black'>
                                 Acepto los terminos y condiciones.
                             </label>
                         </div>

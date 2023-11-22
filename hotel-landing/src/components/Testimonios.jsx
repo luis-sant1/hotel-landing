@@ -1,7 +1,7 @@
 import CarouselReviews from './CarouselReviews'
 export default function Testimonios() {
     return(
-        <div className='w-full h-full dark:bg-gray-800 dark:text-white'>
+        <div className='w-full h-full dark:bg-gray-800 dark:text-white bg-white text-black'>
             <div className='flex w-full h-5/6 pt-10 pb-10 md:pt-16 md:pb-16 lg:pt-20 lg:pb-20' >
                 <div className='bg-[rgba(230,230,230,1)] w-full dark:bg-gray-900 '>
                 <div className='w-9/12  m-auto pb-10'>

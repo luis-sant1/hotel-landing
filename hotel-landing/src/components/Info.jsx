@@ -13,7 +13,7 @@ export default function Info() {
     }, [isInView])
 
     return(
-        <div className="bg-[rgba(230,230,230,1)] w-full h-full pt-20 pb-10 md:flex lg:pb-20 dark:bg-gray-900 dark:text-white" id="info">
+        <div className="bg-[rgba(230,230,230,1)] w-full h-full pt-20 pb-10 md:flex lg:pb-20 dark:bg-gray-900 dark:text-white text-black" id="info">
             <div className="w-11/12 mr-auto ml-auto" >
                 <motion.div 
                 variants={{

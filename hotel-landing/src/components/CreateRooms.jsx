@@ -3,14 +3,14 @@ export default function CreateRooms() {
 
     return (
 
-        <div className='h-full dark:bg-gray-800 pb-5'>
+        <div className='h-full dark:bg-gray-800 pb-5 bg-white'>
             <div className='mr-auto ml-auto w-11/12 md:w-7/12 lg:w-3/12 '>
                 <form className='grid grid-cols-1 justify-center h-full '>
-                    <label htmlFor="" className='font-light pt-10 mt-[40px] dark:text-white'>Nombre de la habitación</label>
+                    <label htmlFor="" className='font-light pt-10 mt-[40px] dark:text-white text-black'>Nombre de la habitación</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('titel', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2' />
+                            className='font-light w-full border border-solid border-black grid h-10 p-2 text-black' />
                     </div>
                     {/* {
                         errors.title && (
@@ -22,11 +22,11 @@ export default function CreateRooms() {
                             </div>
                         )
                     } */}
-                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Oferta especial de la habitación</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Oferta especial de la habitación</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('promo', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2' />
+                            className='font-light w-full border border-solid border-black grid h-10 p-2 text-black' />
                         {/* {
                             errors.promo && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -39,11 +39,11 @@ export default function CreateRooms() {
                         } */}
                     </div>
                     
-                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Descripción</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Descripción</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('description', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2' />
+                            className='font-light w-full border border-solid border-black grid h-10 p-2 text-black' />
                         {/* {
                             errors.description && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -56,11 +56,11 @@ export default function CreateRooms() {
                         } */}
                     </div>
 
-                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Precio</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Precio</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('price', { required: true, minLength: 2, maxLength: 4, })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2' />
+                            className='font-light w-full border border-solid border-black grid h-10 p-2 text-black' />
                     </div>
                     {/* {
                         errors.price && (
@@ -90,11 +90,11 @@ export default function CreateRooms() {
                         )
                     } */}
 
-                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Comodidad 1</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Comodidad 1</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2' />
+                            className='font-light w-full border border-solid border-black grid h-10 p-2 text-black' />
                         {/* {
                             errors.modcons && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -107,11 +107,11 @@ export default function CreateRooms() {
                         } */}
                     </div>
 
-                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Comodidad 2</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Comodidad 2</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2' />
+                            className='font-light w-full border border-solid border-black grid h-10 p-2 text-black' />
                         {/* {
                             errors.modcons && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -124,11 +124,11 @@ export default function CreateRooms() {
                         } */}
                     </div>
 
-                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Comodidad 3</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Comodidad 3</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2' />
+                            className='font-light w-full border border-solid border-black grid h-10 p-2 text-black' />
                         {/* {
                             errors.modcons && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -141,11 +141,11 @@ export default function CreateRooms() {
                         } */}
                     </div>
 
-                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Comodidad 4</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Comodidad 4</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2' />
+                            className='font-light w-full border border-solid border-black grid h-10 p-2 text-black' />
                         {/* {
                             errors.modcons && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -159,9 +159,9 @@ export default function CreateRooms() {
                     </div>
 
 
-                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Imagen de la habitación</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Imagen de la habitación</label>
                     <div className="pt-2">
-                        <input type="file" className="font-light"/>    
+                        <input type="file" className="font-light dark:text-white text-black"/>    
                     </div>                    
 
                     <div className='pt-5 grid justify-items-center mb-4'>

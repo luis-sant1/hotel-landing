@@ -40,7 +40,7 @@ export default function NavBar() {
         setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
       };
     return (
-        <div className="w-full h-14 bg-[rgba(230,230,230,1)] flex fixed z-10 dark:bg-gray-900 dark:text-white">
+        <div className="w-full h-14 bg-[rgba(230,230,230,1)] flex fixed z-10 dark:bg-gray-900 dark:text-white text-black">
             <div className="grid justify-self-start pl-8 pt-3 pb-3  ">
                 <button
                     onClick={toHome}

@@ -25,7 +25,7 @@ export default function Iniciarsesion({toPage, setPage}) {
     }, [isAuthenticated])
     
     return (
-        <div className='h-[100%] dark:bg-gray-800 pb-96'>
+        <div className='h-[100%] dark:bg-gray-800 pb-96 bg-white text-black'>
             <div className="mr-auto ml-auto w-11/12 md:w-7/12 lg:w-3/12 ">
                 <form className="grid grid-cols-1 justify-center h-full " onSubmit={
                     onSubmit
