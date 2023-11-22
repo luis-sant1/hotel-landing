@@ -2,17 +2,17 @@ import CarouselReviews from './CarouselReviews'
 import RoomsButtons from './RoomsButtons'
 export default function RoomsViews() {
     return(
-        <div className='w-full h-full'>
+        <div className='w-full h-full dark:bg-gray-800 dark:text-white'>
             <div className="m-0 w-full h-full group  flex text-center">
                 <img 
                 className="h-80 w-full relative object-cover md:h-full lg:h-4/6 "
                 src="https://www.momalia.com/wp-content/uploads/2019/09/diseno-habitaciones-hotel2.jpg" alt="Imagen de la habitación" />
                 <div className="absolute z-10 m-auto left-0 right-0 top-[29%] text-white flex w-full md:top-[33%] lg:top-[95%]" >
                     <div className="flex justify-center w-1/2">
-                        <h2 className="text-6xl font-extralight flex lg:text-8xl">Titulo</h2>
+                        <h2 className="text-3xl font-extralight flex lg:text-5xl">Titulo</h2>
                     </div>
                     <div className="flex justify-center w-1/2 pt-5">
-                        <p className="font-extralight text-4xl lg:text-6xl">Precio$</p>
+                        <p className="font-extralight text-3xl lg:text-4xl">Precio$</p>
                     </div>
                 </div>
             </div>

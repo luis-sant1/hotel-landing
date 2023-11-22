@@ -3,10 +3,10 @@ export default function EditRooms() {
 
     return (
 
-        <div className='h-full '>
+        <div className='h-full dark:bg-gray-800 pb-5'>
             <div className='mr-auto ml-auto w-11/12 md:w-7/12 lg:w-3/12 '>
                 <form className='grid grid-cols-1 justify-center h-full '>
-                    <label htmlFor="" className='font-light pt-10 mt-[40px]'>Nombre de la habitación</label>
+                    <label htmlFor="" className='font-light pt-10 mt-[40px] dark:text-white'>Nombre de la habitación</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('titel', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
@@ -22,7 +22,7 @@ export default function EditRooms() {
                             </div>
                         )
                     } */}
-                    <label htmlFor="" className='font-light pt-2'>Oferta especial de la habitación</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Oferta especial de la habitación</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('promo', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
@@ -39,7 +39,7 @@ export default function EditRooms() {
                         } */}
                     </div>
                     
-                    <label htmlFor="" className='font-light pt-2'>Descripción</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Descripción</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('description', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
@@ -56,7 +56,7 @@ export default function EditRooms() {
                         } */}
                     </div>
 
-                    <label htmlFor="" className='font-light pt-2'>Precio</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Precio</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('price', { required: true, minLength: 2, maxLength: 4, })}
@@ -90,7 +90,7 @@ export default function EditRooms() {
                         )
                     } */}
 
-                    <label htmlFor="" className='font-light pt-2'>Comodidad 1</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Comodidad 1</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
@@ -107,7 +107,7 @@ export default function EditRooms() {
                         } */}
                     </div>
 
-                    <label htmlFor="" className='font-light pt-2'>Comodidad 2</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Comodidad 2</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
@@ -124,7 +124,7 @@ export default function EditRooms() {
                         } */}
                     </div>
 
-                    <label htmlFor="" className='font-light pt-2'>Comodidad 3</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Comodidad 3</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
@@ -141,7 +141,7 @@ export default function EditRooms() {
                         } */}
                     </div>
 
-                    <label htmlFor="" className='font-light pt-2'>Comodidad 4</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Comodidad 4</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
@@ -159,7 +159,7 @@ export default function EditRooms() {
                     </div>
 
 
-                    <label htmlFor="" className='font-light pt-2'>Imagen de la habitación</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Imagen de la habitación</label>
                     <div className="pt-2">
                         <input type="file" className="font-light"/>    
                     </div>                    

@@ -39,10 +39,10 @@ export default function Formulario() {
         ;
     return (
 
-        <div className='h-full '>
+        <div className='h-full dark:bg-gray-800 pb-56'>
             <div className='mr-auto ml-auto w-11/12 md:w-7/12 lg:w-3/12 '>
                 <form className='grid grid-cols-1 justify-center h-full ' onSubmit={onSubmit} >
-                    <label htmlFor="" className='font-light pt-10 mt-[40px]'>Nombre</label>
+                    <label htmlFor="" className='font-light pt-10 mt-[40px] dark:text-white'>Nombre</label>
                     <div className='pt-1'>
                         <input type="text"
                             {...register('name', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
@@ -54,11 +54,11 @@ export default function Formulario() {
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-red-500 w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                                 </svg>
-                                <p className='text-red-500 mx-1'>Campo Obligatorio.</p>
+                                <p className='text-red-500 mx-1 '>Campo Obligatorio.</p>
                             </div>
                         )
                     }
-                    <label htmlFor="" className='font-light pt-2'>Primer Apellido</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Primer Apellido</label>
                     <div className='pt-1'>
                         <input type="text"
                             {...register('lastName', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
@@ -74,7 +74,7 @@ export default function Formulario() {
                             )
                         }
                     </div>
-                    <label htmlFor="" className='font-light pt-2'>Correo Electronico</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Correo Electronico</label>
                     <div className='pt-1'>
                         <input type="text"
                             {...register('email', { required: true, minLength: 4, maxLength: 90, pattern: /^\S+@\S+\.\S+$/ })}
@@ -92,8 +92,8 @@ export default function Formulario() {
                     }
                     <div className='pt-1'>
                         <div className='grid grid-cols-2 pt-1 '>
-                            <label htmlFor="" className='font-light'>Fecha de entrada</label>
-                            <label htmlFor="" className='font-light'>Fecha de salida</label>
+                            <label htmlFor="" className='font-light dark:text-white'>Fecha de entrada</label>
+                            <label htmlFor="" className='font-light dark:text-white'>Fecha de salida</label>
                         </div>
 
                         <div className='grid grid-cols-2 '>
@@ -117,7 +117,7 @@ export default function Formulario() {
                     </div>
 
 
-                    <label htmlFor="" className='font-light pt-2'>Número de teléfono</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Número de teléfono</label>
                     <div className='pt-1'>
                         <input type="text"
                             {...register('phone', { required: true, minLength: 9, maxLength: 9, })}
@@ -133,7 +133,7 @@ export default function Formulario() {
                             </div>
                         )
                     }
-                    <label htmlFor="" className='font-light pt-2'>Dirección</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Dirección</label>
                     <div className='pt-1'>
                         <input type="text"
                             {...register('address', { required: true, minLength: 3, maxLength: 120, })}
@@ -149,7 +149,7 @@ export default function Formulario() {
                             </div>
                         )
                     }
-                    <label htmlFor="" className='font-light pt-2'>Habitaciones disponibles:</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white'>Habitaciones disponibles:</label>
                     <div className='pt-1'>
                         <select
                             {...register('room', { required: true })}
@@ -177,7 +177,7 @@ export default function Formulario() {
                             {...register('check', { required: true })}
                             type="checkbox" className='h-5 w-5' />
                         <div className=''>
-                            <label htmlFor="" className='font-light pl-2'>
+                            <label htmlFor="" className='font-light pl-2 dark:text-white'>
                                 Acepto los terminos y condiciones.
                             </label>
                         </div>

@@ -20,8 +20,27 @@ export default function NavBar() {
         setShow(true)
     }
 
+    const [theme, setTheme] = useState(() => {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+    
+        return "light";
+      });
+    
+      useEffect(() => {
+        if (theme === "dark") {
+          document.querySelector("html").classList.add("dark");
+        } else {
+          document.querySelector("html").classList.remove("dark");
+        }
+      }, [theme]);
+    
+      const handleChangeTheme = () => {
+        setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+      };
     return (
-        <div className="w-full h-14 bg-[rgba(230,230,230,1)] flex fixed z-10">
+        <div className="w-full h-14 bg-[rgba(230,230,230,1)] flex fixed z-10 dark:bg-gray-900 dark:text-white">
             <div className="grid justify-self-start pl-8 pt-3 pb-3  ">
                 <button
                     onClick={toHome}
@@ -34,7 +53,7 @@ export default function NavBar() {
                         <>
                             <Link to='#info' className="hidden md:flex p-3 font-light text-2xl">Acerca de</Link>
                             <Link to='#rooms' className="hidden md:flex p-3 font-light text-2xl">Habitaciones</Link>
-                            <form action="" className="hidden md:flex md:pt-1 h-12 bg-[rgba(230,230,230,1)]">
+                            <form action="" className="hidden md:flex md:pt-1 h-12 bg-[rgba(230,230,230,1)] dark:bg-gray-900 dark:text-black">
                                 <select name="sexo" id="" onChange={toView} className="font-light text-xl">
                                     <option value="" disabled selected className="font-light">Disponibles</option>
                                     <option value="" onClick={toView} className="font-light">Habitación para 2</option>
@@ -44,6 +63,14 @@ export default function NavBar() {
                                     <option value="" onClick className="font-light">Habitación para 6</option>
                                 </select>
                             </form>
+                            <div className="hidden md:flex dark:bg-gray-900">
+                                <button
+                                className="bg-slate-200 px-4 py-2 rounded hover:bg-slate-300 dark:bg-gray-900 dark:text-white dark:hover:bg-slate-900"
+                                onClick={handleChangeTheme}
+                                >
+                                Cambiar Tema
+                                </button>
+                            </div>
                             <Link to='#beachs' className="hidden md:flex p-3 font-light text-2xl">Playas</Link>   
                         </>
                     )

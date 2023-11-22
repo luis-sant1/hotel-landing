@@ -25,16 +25,16 @@ export default function Iniciarsesion({toPage, setPage}) {
     }, [isAuthenticated])
     
     return (
-        <div className='h-full '>
+        <div className='h-[100%] dark:bg-gray-800 pb-96'>
             <div className="mr-auto ml-auto w-11/12 md:w-7/12 lg:w-3/12 ">
                 <form className="grid grid-cols-1 justify-center h-full " onSubmit={
                     onSubmit
                 }>
                     <div className="pt-24">
-                        <h1 className="text-center font-light text-3xl md:text-4xl">Inicia Sesión de Administrador</h1>
+                        <h1 className="text-center font-light text-3xl md:text-4xl dark:text-white">Inicia Sesión de Administrador</h1>
                     </div>
 
-                    <label htmlFor="" id="email" className="font-light pt-10 "><b>Correo Electronico</b></label>
+                    <label htmlFor="" id="email" className="font-light pt-10 dark:text-white"><b>Correo Electronico</b></label>
                     <input
                         type="text"
                         {...register('email', { required: true, minLength: 4, maxLength: 90, pattern: /^\S+@\S+\.\S+$/ })}
@@ -55,7 +55,7 @@ export default function Iniciarsesion({toPage, setPage}) {
                         )
                     }
 
-                    <label htmlFor="" id="password" className=" font-light pt-2"><b>Contraseña</b></label>
+                    <label htmlFor="" id="password" className=" font-light pt-2 dark:text-white"><b>Contraseña</b></label>
                     <input
                         type="password"
                         {...register('password', { required: true, minLength: 4, maxLength: 90, pattern: /^.{6,24}$/ })}
@@ -81,7 +81,7 @@ export default function Iniciarsesion({toPage, setPage}) {
 
                     }
                 
-                    <div className='pt-10 grid justify-items-center mb-4'>
+                    <div className='pt-10 grid justify-items-center mb-4 pb-32'>
                         <button type="submit" className="font-light bg-yellow-800 w-32 h-10 text-white text-2xl">
                             Iniciar Sesión
                         </button>

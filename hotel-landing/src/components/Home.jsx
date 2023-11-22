@@ -12,7 +12,7 @@ export default function Home() {
         setShow(false)
     }
     return (
-        <div className="bg-[rgba(230,230,230,1)] lg:flex">
+        <div className="bg-[rgba(230,230,230,1)] lg:flex dark:bg-gray-900 dark:text-white">
             <div className="lg:flex lg:w-11/12">
                 <div className='w-11/12 mr-auto ml-auto md:pl-8 md:w-full lg:w-11/12 lg:pl-10'>
                 <motion.div 

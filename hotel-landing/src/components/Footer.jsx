@@ -3,8 +3,8 @@ export default function Footer() {
     return(
         <div className="w-full h-full">
             <div className="">
-                <div className="bg-[rgba(230,230,230,1)]">
-                    <div className="w-full h-5/6 bg-[rgba(230,230,230,1)] md:flex ">
+                <div className="bg-[rgba(230,230,230,1)] dark:bg-gray-900 dark:text-white">
+                    <div className="w-full h-5/6 bg-[rgba(230,230,230,1)] dark:bg-gray-900 dark:text-white md:flex ">
                         <div className="pl-8 pt-8 md:w-1/3 md:pl-10 md:pt-12 md:pb-6 lg:pl-20">
                             <p className="font-light text-2xl pb-4 md:text-3xl md:pb-6 lg:text-4xl">Perubiam.</p>
                             <p className="pb-4 md:pb-6"><a href="" className="font-light md:text-xl lg:text-2xl">Acerca de</a></p>
