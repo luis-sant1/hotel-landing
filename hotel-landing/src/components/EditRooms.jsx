@@ -20,7 +20,7 @@ export default function EditRooms() {
         values = { ...values, imagen: values.imagen[0]};
 
         try {
-            const res = await editRoom(id)
+            const res = await editRoom(id, formData)
             console.log(res)
         } catch (error) {
             return console.log(error)
