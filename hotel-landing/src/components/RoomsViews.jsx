@@ -7,9 +7,9 @@ export default function RoomsViews() {
                 <img 
                 className="h-80 w-full relative object-cover md:h-full lg:h-4/6 "
                 src="https://www.momalia.com/wp-content/uploads/2019/09/diseno-habitaciones-hotel2.jpg" alt="Imagen de la habitación" />
-                <div className="absolute z-10 m-auto left-0 right-0 top-[29%] text-white flex w-full md:top-[33%] lg:top-[95%]" >
+                <div className="absolute z-5 m-auto left-0 right-0  text-white flex self-end items-end w-full pb-10" >
                     <div className="flex justify-center w-1/2">
-                        <h2 className="text-3xl font-extralight flex lg:text-5xl">Titulo</h2>
+                        <h2 className="text-4xl font-extralight flex  lg:text-5xl">Titulo</h2>
                     </div>
                     <div className="flex justify-center w-1/2 pt-5">
                         <p className="font-extralight text-3xl lg:text-4xl">Precio$</p>
