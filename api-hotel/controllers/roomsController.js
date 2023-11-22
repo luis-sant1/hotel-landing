@@ -125,7 +125,7 @@ const oneRoom = async (req, res) => {
 }
 const roomAndReviews = async (req, res) => {
     try {
-        const result = await roomSchema.find({})
+        const result = await roomSchema.find({}).populate('review')
         res.status(200).json({
             rooms: result
         })
@@ -137,5 +137,18 @@ const roomAndReviews = async (req, res) => {
         )
     }
 }
+const deleteRoom = async (req, res) => {
+    try {
+       const id = req.params._id;
+       const room = await prSchema.findByIdAndDelete(id)
+ 
+       if (!room) return res.status(404).json({messageError: 'Invalid room'})
+ 
+       await deleteImage(room.imagen.public_id)
+       return res.status(204).send({message: "Room has been romeved"})
+    } catch (error) {
+       return res.status(404).json({messageError: error.message});
+    }
+ }
 
-module.exports = { getAll, createRooms, roomAndReviews, editRoom, oneRoom } 
+module.exports = { getAll, createRooms, roomAndReviews, editRoom, oneRoom, deleteRoom } 

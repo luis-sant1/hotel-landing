@@ -103,7 +103,7 @@ export const AuthProvider = ({ children }) => {
         }
         fetchRooms();
     }, [])
-
+    console.log(rooms)
     return (
         <AuthContext.Provider value={{ //Export 
             setShow,
