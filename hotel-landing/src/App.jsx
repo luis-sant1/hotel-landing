@@ -23,11 +23,11 @@ function App() {
       <Routes>
         <Route path='/*' element={<Landing />} />
         <Route path='/reservation-form' element={<Formulario />} />
-        <Route path='/rooms-views' element={<RoomsViews />} />
+        <Route path='/rooms-views/:id' element={<RoomsViews />} />
         <Route path='/login' element={<Login />} />
 
         <Route element={<ProtectedRoutes />}>
-          <Route path='/edit-rooms' element={<EditRooms />} />
+          <Route path='/edit-rooms/:id' element={<EditRooms />} />
           <Route path='/create-rooms' element={<CreateRooms />} />  
         </Route>
 

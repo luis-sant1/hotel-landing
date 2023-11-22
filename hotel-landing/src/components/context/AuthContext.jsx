@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 import { createContext, useContext, useState, useEffect} from "react";
-import {   logout } from "../../api/requests";
+import {   logout, allRooms } from "../../api/requests";
 import { login, verify } from '../../api/reqCredentials';
 export const AuthContext = createContext();
 export const useAuth = () => {                           // Usa el contexto 
@@ -18,6 +18,7 @@ export const AuthProvider = ({ children }) => {
     const [adminAuth, setAdminAuth] = useState(false)
     const [isAuthenticated, setIsAuthenticated] = useState(null) 
     const [error, setError] = useState("")
+    const [rooms, setRooms] = useState([])
 
     const signin = async (user) => {
         try {
@@ -90,8 +91,19 @@ export const AuthProvider = ({ children }) => {
         validate(); // EJECUTA
     }, []);
 
+    useEffect(() => {
+        const fetchRooms = async () => {
+            try {
+               const res = await allRooms()
+               setRooms(res.data?.rooms)
+               
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchRooms();
+    }, [])
 
-    
     return (
         <AuthContext.Provider value={{ //Export 
             setShow,
@@ -100,7 +112,8 @@ export const AuthProvider = ({ children }) => {
             isAuthenticated,
             adminAuth,
             setUser, 
-            error   
+            error,
+            rooms   
         }}>
             {children}
         </AuthContext.Provider>

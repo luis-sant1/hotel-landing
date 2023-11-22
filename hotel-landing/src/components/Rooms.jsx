@@ -17,8 +17,7 @@ export default function Rooms (props){
             src={props.img} alt="" />
             <div className="absolute z-10 hidden group-hover:block m-auto left-0 right-0  top-[40%] text-white " >
                 <h2 className="text-xl font-light">{props.type}</h2>
-                <Link to='#'
-                onClick={handleSeeMore}
+                <Link to={`/rooms-views/${props.id}`}
                 className=""><span className="text-lg relative after:bg-white after:absolute after:h-0.5 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Ver mas</span></Link>
                 <p className="font-light">{props.promo}</p>
             </div>
