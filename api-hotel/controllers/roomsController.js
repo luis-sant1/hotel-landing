@@ -1,63 +1,92 @@
 const roomSchema = require('../models/rooms')
 const reviewModel = require('../models/reviewModel')
+const { deleteImage, uploadImageEvent } = require('../utils/cloudinary');
+var fs = require('fs-extra');
 const createRooms = async (req, res) => {
+    console.log("create rooms running")
     try {
-        console.log(req.file) 
-         if (!req.file) return res.status(404).json({messageError: 'Debes agregar una imagen del item'})
-         const { path } = req.file;
-   
-         const { 
+        const { file } = req
+        console.log(file)
+        if (!req.file) return res.status(404).json({ messageError: 'Debes agregar una imagen del item' })
+        console.log("here 2")
+        const { path } = req.file;
+        console.log("here 3")
+        const {
             title,
             description,
             price,
-            stars,
             imagen,
             promo,
-            modcons
+            modcon,
+            modcon1,
+            modcon2,
+            modcon3,
         } = req.body
-         let roomCompare = await roomSchema.findOne({ title });
-         console.log(roomCompare);
-         if (room) return res.status(404).json({messageError: 'Ya existe esta habitación'});
-   
-          room = new prSchema({ 
-            title,
-            description,
-            price,
-            stars,
-            imagen,
-            promo,
-            modcons
-        } );
-         console.log(room);
-         if (path) {
-            const result = await uploadImageEvent(path)
-            await fs.unlink(path)
-            room.imagen = {public_id: result.public_id, secure_url: result.secure_url}
-         }
-         await room.save()
-         return res.status(200).json({room: room._id});
-      } catch (error) {
-         // console.log(error.message);
-         return res.status(500).json({messageError: error.message});
-      }
+        console.log(req.body)
+        console.log("here 4")
+        let room = await roomSchema.findOne({ title });
+        //  console.log(roomCompare);
+        console.log("here 5")
+        if (room) return res.status(404).json({ messageError: 'Ya existe esta habitación' });
+        console.log("here 6")
+        room = new roomSchema({
+            title:title ,
+            description:description ,
+            price:price ,
+            imagen:imagen ,
+            promo:promo ,
+            modcon:modcon ,
+            modcon1:modcon1 ,
+            modcon2:modcon2 ,
+            modcon3:modcon3 ,
+        });
+        console.log(room)
+        //  console.log(room);
+        if (path) {
+            console.log("here 8")
+            try {
+                console.log(path)
+                const result = await uploadImageEvent(path)
+                console.log("here 10")
+                await fs.unlink(path)
+                console.log("here 11")
+                room.imagen = { public_id: result.public_id, secure_url: result.secure_url }
+                console.log("here 12")
+            } catch (error) {
+                console.log("here 13")
+                console.log(error)
+                console.log("here 14")
+                return res.status(500).json({
+
+                    error: error
+                })
+            }
+        }
+        console.log("here 15")
+        await room.save()
+        console.log("here 16")
+        return res.status(200).json({ room: room._id });
+    } catch (error) {
+        // console.log(error.message);
+        return res.status(500).json({ messageError: error.message });
+    }
 }
 
-const getAll = async ( req, res ) => {
-    res.status(200).json({hello: "world"})
+const getAll = async (req, res) => {
+    res.status(200).json({ hello: "world" })
 }
 
 const roomAndReviews = async (req, res) => {
-    try{
-       
-        const result = await roomSchema.find({}).populate("review")
-        console.log(result)
+    try {
+
+        const result = await roomSchema.find({})
         res.status(200).json({
             msg: result
         })
-    }catch(error){
+    } catch (error) {
         res.status(400).json(
             {
-                error:error
+                error: error
             }
         )
     }
