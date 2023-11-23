@@ -4,6 +4,13 @@ import { useParams } from 'react-router-dom'
 import { oneRoom } from '../api/requests'
 import { useEffect, useState } from 'react'
 export default function RoomsViews() {
+    function useForceUpdate(){
+        const [value, setValue] = useState(0); // integer state
+        return () => setValue(value => value + 1); // update state to force render
+        // A function that increment 👆🏻 the previous state like here 
+        // is better than directly setting `setValue(value + 1)`
+    }
+    const forceUpdate = useForceUpdate();
     const [room, setRoom] = useState({})
     useEffect(() => {
         const room = async()=> {
@@ -17,7 +24,8 @@ export default function RoomsViews() {
         room();
     }, [])
     const {id} = useParams()
-    console.log(room)
+
+   
     return(
         <div className='w-full h-full'>
             <div className="m-0 w-full h-full group  flex text-center">

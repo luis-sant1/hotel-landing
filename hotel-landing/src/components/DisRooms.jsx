@@ -1,6 +1,8 @@
 import CarouselRooms from "./CarouselRooms"
 import CreateButton from "./CreateButton"
+import { useAuth } from "./context/AuthContext"
 export default function DisRooms() {
+    const {isAuthenticated} = useAuth()
     return(
         <div className="bg-[rgba(230,230,230,1)]">
             <div className='flex w-full bg-[rgba(230,230,230,1)]' >
@@ -13,7 +15,9 @@ export default function DisRooms() {
                     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
                 </style>
             </div>
-        <CreateButton/>
+        {
+            isAuthenticated && <CreateButton/>
+        }
         </div>
     )
 }
