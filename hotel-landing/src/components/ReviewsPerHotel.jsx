@@ -15,7 +15,6 @@ function IconBxsQuoteAltLeft(props) {
   );
 }
 export default function ReviewsPerHotel (review){ 
-  console.log(review)
     return(
         <div className="m-4">
             <div className="bg-brown">

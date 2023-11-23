@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const validate = async () => {
             const cookies = Cookies.get()   
-            console.log(cookies.token)                                // Revisamos si tenemos cookies
+            // console.log(cookies.token)                                // Revisamos si tenemos cookies
             if (!cookies.token) {
                 setAdminAuth(false)                                                                      // Si no hay token
                 setIsAuthenticated(false)

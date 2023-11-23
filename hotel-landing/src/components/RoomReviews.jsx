@@ -18,7 +18,6 @@ export default function RoomReviews() {
         }
         fetching()
     }, [])
-    console.log(data)
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
