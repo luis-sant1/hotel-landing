@@ -61,8 +61,6 @@ export const AuthProvider = ({ children }) => {
             return () => clearTimeout(timer)                           // Eliminamos después de ejecutar (evita consumo extra de recursos)
         }
     }, [error])
-
-    console.log(isAuthenticated)
     useEffect(() => {
         const validate = async () => {
             const cookies = Cookies.get()   
@@ -117,7 +115,6 @@ export const AuthProvider = ({ children }) => {
         }
         fetchRooms();
     }, [loadData])
-    console.log(rooms)
     return (
         <AuthContext.Provider value={{ //Export 
             setShow,

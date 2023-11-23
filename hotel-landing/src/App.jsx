@@ -12,7 +12,7 @@ import EditRooms from './components/EditRooms.jsx'
 import RoomsViews from './components/RoomsViews.jsx'
 import CreateRooms from './components/CreateRooms.jsx'
 import ProtectedRoutes from './components/context/ProtectedRoutes.jsx'
-import { useAuth } from './components/context/AuthContext.jsx'
+import RoomReviews from './components/RoomReviews.jsx'
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
         <Route path='/reservation-form' element={<Formulario />} />
         <Route path='/rooms-views/:id' element={<RoomsViews />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/rReviews' element={<RoomReviews/>} />
 
         <Route element={<ProtectedRoutes />}>
           <Route path='/edit-rooms/:id' element={<EditRooms />} />

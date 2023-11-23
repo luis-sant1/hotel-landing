@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { oneRoom } from '../api/requests'
 import { useEffect, useState } from 'react'
 import { useAuth } from './context/AuthContext'
+import RoomReviews from './RoomReviews'
 import Footer from './Footer'
 export default function RoomsViews() {
     const {isAuthenticated} = useAuth()
@@ -79,7 +80,7 @@ export default function RoomsViews() {
                     <h1 className='text-black font-light text-5xl md:text-6xl md:pb-4 lg:text-7xl lg:pb-6 dark:text-white'>Reviews</h1>
                 </div>
 
-                <CarouselReviews/>
+                <RoomReviews id= {id}/>
             </div>
             {
                 isAuthenticated && <RoomsButtons id = {id}/>

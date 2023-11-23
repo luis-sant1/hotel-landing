@@ -113,7 +113,7 @@ const getAll = async (req, res) => {
 const oneRoom = async (req, res) => {
     try {
         const { _id } = req.params
-        const find = await roomSchema.findById({ _id })
+        const find = await roomSchema.findById({ _id }).populate('review')
         res.status(200).json({
             room: find
         })
