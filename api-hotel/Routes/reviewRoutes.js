@@ -3,7 +3,7 @@ const router = express.Router();
 const {create, getAll} = require('../controllers/reviewController')
 
 router
-.get('/create', create)
-.get('/getAll', getAll)
+.post('/create', create)
+.get('/reviews', getAll)
 
 module.exports = router

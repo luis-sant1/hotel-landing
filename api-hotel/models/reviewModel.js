@@ -9,7 +9,9 @@ const reviewModel = Schema({
     username: {
         type: String,
         required: true
-    }
+    },
+    roomId:  [{type: mongoose.Schema.Types.ObjectId,
+        ref: "Rooms"}]
 })  
 
 module.exports = mongoose.model("Reviews", reviewModel)

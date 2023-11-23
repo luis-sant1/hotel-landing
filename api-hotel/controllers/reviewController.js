@@ -1,23 +1,22 @@
 const reviewModel = require('../models/reviewModel')
+const roomSchema = require('../models/rooms')
 
 const create = async(req, res) => {
     try {
-        const newReview = {
-            review: "Anim cupidatat reprehenderit ipsum nostrud consectetur labore excepteur ullamco excepteur minim.",
-            username: "LilX"
-        }
-        const newReview2 = {
-            review: "Magna nisi enim aute in enim tempor nostrud sunt officia elit est commodo nulla.",
-            username: "locoCow"
-        }
-        const insert = await reviewModel.insertMany([
-            newReview,
-            newReview2
-        ])
+       const { username, review, roomId } = req.body
+       const room = await roomSchema.findById(roomId)
+       const newReview = new reviewModel({
+        username, 
+        review,
+        roomId : room._id
+       })
+  
+       const saveReview = await newReview.save()
+       room.review = room.review.concat(saveReview._id)
+       await room.save()
+
         res.status(200).json({
-            msg: insert,
-            rw: newReview,
-            rw2: newReview
+            review: saveReview
         })
     } catch (error) {
         res.status(400).json({

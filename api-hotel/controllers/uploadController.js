@@ -45,6 +45,7 @@ const upload = multer({
          cb(null, true)
       } catch (error) {
          cb(new Error(error.message));
+         console.log(error)
       }
    },
    limits: {

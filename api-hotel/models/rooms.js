@@ -3,20 +3,13 @@ const { Schema } = require('mongoose')
 
 const roomModel = Schema({
     title: {
-        type: String,
-        required: true
+        type: String
     },
     description: {
-        type: String,
-        required: true
+        type: String
     },
     price: {
-        type: String,
-        required: true
-    },
-    stars: {
-        type: Number,
-        required: true
+        type: String
     },
     imagen: {
         type: Object,
@@ -24,17 +17,25 @@ const roomModel = Schema({
         secure_url: String,
         default: null
     },
-    review: {
-        type: Array,
-        default: []
-    },
+    review: 
+        [{type: mongoose.Schema.Types.ObjectId,
+        ref: "Reviews"}]
+    ,
     promo:{
         type: String,
     },
-    modcons: {
-        type: Array,
-        default: []
-    }
+    modcon: {
+        type:String
+    },
+    modcon1: {
+        type:String
+    },
+    modcon2: {
+        type:String
+    },
+    modcon3: {
+        type:String
+    },
 },
     {
         timestamps: true,

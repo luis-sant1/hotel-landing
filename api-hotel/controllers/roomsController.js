@@ -1,112 +1,154 @@
 const roomSchema = require('../models/rooms')
-
+const reviewModel = require('../models/reviewModel')
+const { deleteImage, uploadImageEvent } = require('../utils/cloudinary');
+var fs = require('fs-extra');
+const { updateOne } = require('../models/products');
 const createRooms = async (req, res) => {
+    console.log("create rooms running")
     try {
-         const newRoom = {
-            title: "Habitación matrimonial.", 
-            description: "Veniam reprehenderit non anim incididunt ex amet ex ea voluptate sunt proident tempor ea.", 
-            price: "423$", 
-            stars: "5", 
-            imagen: "https://www.hotelabelux.com/themes/demo/assets/images/triple.jpg", 
-            review: ["655981c36441bfb455fdbd6e"],
-            promo: "",
-            modcons: ["Acetao", "Nimiguiri", "tormenta", "carrusel", "pepegrilloo el mejor"]
+        const { file } = req
+        console.log(file)
+        if (!req.file) return res.status(404).json({ messageError: 'Debes agregar una imagen del room' })
+        console.log("here 2")
+        const { path } = req.file;
+        console.log("here 3")
+        const {
+            title,
+            description,
+            price,
+            imagen,
+            promo,
+            modcon,
+            modcon1,
+            modcon2,
+            modcon3,
+        } = req.body
+        console.log(req.body)
+        console.log("here 4")
+        let room = await roomSchema.findOne({ title });
+        //  console.log(roomCompare);
+        console.log("here 5")
+        if (room) return res.status(404).json({ messageError: 'Ya existe esta habitación' });
+        console.log("here 6")
+        room = new roomSchema({
+            title: title,
+            description: description,
+            price: price,
+            imagen: imagen,
+            promo: promo,
+            modcon: modcon,
+            modcon1: modcon1,
+            modcon2: modcon2,
+            modcon3: modcon3,
+        });
+        console.log(room)
+        //  console.log(room);
+        if (path) {
+            console.log("here 8")
+            try {
+                console.log(path)
+                const result = await uploadImageEvent(path)
+                console.log("here 10")
+                await fs.unlink(path)
+                console.log("here 11")
+                room.imagen = { public_id: result.public_id, secure_url: result.secure_url }
+                console.log("here 12")
+            } catch (error) {
+                console.log("here 13")
+                console.log(error)
+                console.log("here 14")
+                return res.status(500).json({
+
+                    error: error
+                })
+            }
         }
-         const newRoom1 = {
-            title: "Habitación para 3 personas.", 
-            description: "Ad aliquip qui do velit velit aliquip duis quis mollit esse non consequat pariatur.", 
-            price: "324$", 
-            stars: "5", 
-            imagen: "https://images.hola.com/imagenes/decoracion/20230425230358/dormitorios-inspirados-en-habitaciones-hoteles-am/1-237-28/habitaciones-hotel-5a-a.jpg", 
-            review: ["655981c36441bfb455fdbd6e"],
-            promo: "",
-            modcons: ["Acetao", "Nimiguiri", "tormenta", "carrusel", "pepegrilloo el mejor"]
-        }
-         const newRoom2 = {
-            title: "Habitación para 4 personas.", 
-            description: "In consectetur amet laboris exercitation nulla irure.", 
-            price: "324$", 
-            stars: "5", 
-            imagen: "https://hotelhumberto.com.mx/img/site/vista-habitaciones/4-personas-2.jpg", 
-            review: ["655981c36441bfb455fdbd6e"],
-            promo: "",
-            modcons: ["Acetao", "Nimiguiri", "tormenta", "carrusel", "pepegrilloo el mejor"]
-        }
-         const newRoom3 = {
-            title: "Habitación para 5 personas.", 
-            description: "Incididunt qui culpa ut fugiat ad.", 
-            price: "345$", 
-            stars: "5", 
-            imagen: "https://bestlocationhotels.com/wp-content/uploads/2019/04/TRYP-by-Wyndham-Times-Square-South.jpg", 
-            review: ["655981c36441bfb455fdbd6e" , "655981c36441bfb455fdbd6f"],
-            promo: "",
-            modcons: ["Acetao", "Nimiguiri", "tormenta", "carrusel", "pepegrilloo el mejor"]
-        }
-         const newRoom4 = {
-            title: "Habitación para 6 personas.", 
-            description: "Officia sunt deserunt nisi ipsum amet consequat culpa laborum minim culpa aliqua ea eu cillum.", 
-            price: "235$", 
-            stars: "5", 
-            imagen: "https://es.hotellebayeux.com/usermedia/photo-636567303628543623-2.jpg?dummy=0&h=800", 
-            review: ["655981c36441bfb455fdbd6e" , "655981c36441bfb455fdbd6f"],
-            promo: "",
-            modcons: ["Acetao", "Nimiguiri", "tormenta", "carrusel", "pepegrilloo el mejor"]
-        }
-        const insert = await roomSchema.insertMany([
-            newRoom,
-            newRoom1,
-            newRoom2,
-            newRoom3,
-            newRoom4
-        ])
-        res.status(200).json({
-            msg: insert
-        })
+        console.log("here 15")
+        await room.save()
+        console.log("here 16")
+        return res.status(200).json({ room: room._id });
     } catch (error) {
-        res.status(500).json({
-            error: error
-        })
+        // console.log(error.message);
+        return res.status(500).json({ messageError: error.message });
     }
 }
 
-const getAll = async ( req, res ) => {
-    res.status(200).json({hello: "world"})
+const editRoom = async (req, res) => {
+    try {
+        let path;
+        if (!!req.file) {
+            path = req.file.path;
+        }
+        const { _id } = req.params;
+        console.log(_id)
+        const update = req.body;
+        console.log(update)
+        console.log(path)
+        if (path !== undefined) {
+            console.log("Searching a existed room")
+            let room = await roomSchema.findById(_id)
+            console.log("FINDED")
+            await deleteImage(room.imagen.public_id)
+            console.log("IMG DELETED")
+            const result = await uploadImageEvent(path)
+            console.log("NEW IMAGEE")
+            await fs.unlink(path)
+            update.imagen = { public_id: result.public_id, secure_url: result.secure_url }
+            room = await roomSchema.findByIdAndUpdate(_id, update, { new: true })
+            console.log(room)
+            return res.status(200).json({ room: "The room has been edited" })
+        }
+        const room = await roomSchema.findByIdAndUpdate(_id, update, { new: true })
+        return res.status(200).json({ room: "The room has been edited" })
+
+    } catch (error) {
+        return res.status(500).json({ messageError: error.message });
+    }
 }
 
-const roomAndReviews = async (req, res) => {
-    try{
-        const result = await roomSchema.aggregate(      /// Aggregaet posibilita navegar en relaciones
-            [
-                {
-                    $lookup:{
-                        from: "Reviews",                                        // colección en la que queremos indagar
-                        let: {
-                            reviewsIds: "$review"                               // aquí vamos a guaardar ids del room.
-                        },
-                        pipeline:{                                              // Array con propiedades (child)
-                            $match:{                                            // busca coincidencias
-                                $expr: {                                        // Aquí van las expresiones condiciones
-                                    $in: ["$_id", "$$reviewsIds"]                                     // [String/Arr, Arr*]
-                                }
-                            }
-                        },                                      // Fathers
-                        as: "roomReviews"
-                    }
-                },
-                {$unwind: '$roomReviews'}
-            ]
-        )
-        console.log(result)
+
+const getAll = async (req, res) => {
+    res.status(200).json({ hello: "world" })
+}
+const oneRoom = async (req, res) => {
+    try {
+        const { _id } = req.params
+        const find = await roomSchema.findById({ _id })
         res.status(200).json({
-            msg: result
+            room: find
         })
-    }catch(error){
+    } catch (error) {
+        return res.status(404).json({
+            error: "Not found"
+        })
+    }
+}
+const roomAndReviews = async (req, res) => {
+    try {
+        const result = await roomSchema.find({}).populate('review')
+        res.status(200).json({
+            rooms: result
+        })
+    } catch (error) {
         res.status(400).json(
             {
-                error:error
+                error: error
             }
         )
     }
 }
+const deleteRoom = async (req, res) => {
+    try {
+       const id = req.params._id;
+       const room = await roomSchema.findByIdAndDelete(id)
+ 
+       if (!room) return res.status(404).json({messageError: 'Invalid room'})
+ 
+       await deleteImage(room.imagen.public_id)
+       return res.status(200).json({message: "Room has been romeved"})
+    } catch (error) {
+       return res.status(404).json({messageError: error});
+    }
+ }
 
-module.exports = { getAll, createRooms, roomAndReviews } 
+module.exports = { getAll, createRooms, roomAndReviews, editRoom, oneRoom, deleteRoom } 

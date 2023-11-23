@@ -11,6 +11,7 @@ node_modules
 uploadImages
 dist
 dist-ssr
+uploadsImages
 # .env
 *.local
 itemXample
