@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import {  useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "./context/AuthContext";
 export default function NavBar() {
@@ -59,7 +59,7 @@ export default function NavBar() {
                             <Link to='#info' className="hidden md:flex p-3 font-light text-2xl">Acerca de</Link>
                             <Link to='#rooms' className="hidden md:flex p-3 font-light text-2xl">Habitaciones</Link>
 
-                            <form action="" className="hidden md:flex md:pt-1 h-12 bg-[rgba(230,230,230,1)] dark:bg-gray-900 dark:text-black">">
+                            <form action="" className="hidden md:flex md:pt-1 h-12 bg-[rgba(230,230,230,1)] dark:bg-gray-900 dark:text-black">
                                 <select   onChange={handleOption} name="" id="" className="font-light text-xl">
                                     <option className="font-light">Disponibles</option>
                                     {

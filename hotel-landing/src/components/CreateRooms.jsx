@@ -245,7 +245,7 @@ export default function CreateRooms() {
 
 
                         <input type="file" className="font-light dark:text-white text-black"
-                    nt-light"
+             
                             // name= "modcons"
                             // onChange = {handleImg}
                             // value={data.imagen}
