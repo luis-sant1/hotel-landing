@@ -29,18 +29,20 @@ export default function EditRooms() {
     
     return (
 
-        <div className='h-full '>
+        <div className='h-full dark:bg-gray-800 pb-5 bg-white'>
             <div className='mr-auto ml-auto w-11/12 md:w-7/12 lg:w-3/12 '>
+
                 <form  className='grid grid-cols-1 justify-center h-full ' onSubmit={onSubmit}>
-                    <label htmlFor="" className='font-light pt-10 mt-[40px]'>title de la habitación</label>
+                    <label htmlFor=""className='font-light pt-10 mt-[40px] dark:text-white text-black'>title de la habitación</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('titel', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2'
+                           className='font-light w-full border border-solid border-black grid h-10 p-2 text-black'
                             // name= "title"
                             // onChange = {handleChange}
                             // value={data.title}
                             {...register('title', { required: true })} />
+
 
                     </div>
                     {/* {
@@ -53,15 +55,17 @@ export default function EditRooms() {
                             </div>
                         )
                     } */}
-                    <label htmlFor="" className='font-light pt-2'>Oferta especial de la habitación</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Oferta especial de la habitación</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('promo', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2'
+
+                            className='font-light w-full border border-solid border-black grid h-10 p-2 text-black'
                             // name= "promo"
                             // onChange = {handleChange}
                             // value={data.promo} 
                             {...register('promo', { required: true })} />
+
                         {/* {
                             errors.promo && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -74,15 +78,18 @@ export default function EditRooms() {
                         } */}
                     </div>
 
-                    <label htmlFor="" className='font-light pt-2'>Descripción</label>
+
+
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Descripción</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('description', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2'
+                            className='font-light w-full border border-solid border-black grid h-10 p-2 text-black'
                             // name= "description"
                             // onChange = {handleChange}
                             // value={data.description}
                             {...register('description', { required: true })} />
+
                         {/* {
                             errors.description && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -95,15 +102,17 @@ export default function EditRooms() {
                         } */}
                     </div>
 
-                    <label htmlFor="" className='font-light pt-2'>price</label>
+
+                    <label htmlFor=""className='font-light pt-2 dark:text-white text-black'>price</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('price', { required: true, minLength: 2, maxLength: 4, })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2'
+                           className='font-light w-full border border-solid border-black grid h-10 p-2 text-black'
                             // name= "price"
                             // onChange = {handleChange}
                             // value={data.price}
                             {...register('price', { required: true })} />
+
                     </div>
                     {/* {
                         errors.price && (
@@ -116,15 +125,17 @@ export default function EditRooms() {
                         )
                     } */}
 
-                    <label htmlFor="" className='font-light pt-2'>Comodidad 1</label>
+
+                    <label htmlFor=""  className='font-light pt-2 dark:text-white text-black'>Comodidad 1</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2'
+                            className='font-light w-full border border-solid border-black grid h-10 p-2 text-black'
                             // name= "modcons"
                             // onChange = {handleChange}
                             // value={data.modcons}
                             {...register('modcon1', { required: true })} />
+
                         {/* {
                             errors.modcons && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -137,15 +148,17 @@ export default function EditRooms() {
                         } */}
                     </div>
 
-                    <label htmlFor="" className='font-light pt-2'>Comodidad 2</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Comodidad 2</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2'
+
+                            className='font-light w-full border border-solid border-black grid h-10 p-2 text-black'
                             // name= "modcons"
                             // onChange = {handleChange}
                             // value={data.modcons}
                             {...register('modcon2', { required: true })} />
+
                         {/* {
                             errors.modcons && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -158,15 +171,17 @@ export default function EditRooms() {
                         } */}
                     </div>
 
-                    <label htmlFor="" className='font-light pt-2'>Comodidad 3</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Comodidad 3</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2'
+
+                           className='font-light w-full border border-solid border-black grid h-10 p-2 text-black'
                             // name= "modcons"
                             // onChange = {handleChange}
                             // value={data.modcons}
                             {...register('modcon3', { required: true })} />
+
                         {/* {
                             errors.modcons && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -179,15 +194,17 @@ export default function EditRooms() {
                         } */}
                     </div>
 
-                    <label htmlFor="" className='font-light pt-2'>Comodidad 4</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Comodidad 4</label>
                     <div className='pt-1'>
                         <input type="text"
                             // {...register('modcons', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })}
-                            className='font-light w-full border border-solid border-black grid h-10 p-2'
+
+                            className='font-light w-full border border-solid border-black grid h-10 p-2 text-black'
                             // name= "modcons"
                             // onChange = {handleChange}
                             // value={data.modcons}
                             {...register('modcon', { required: true })} />
+
                         {/* {
                             errors.modcons && (
                                 <div className='flex flex-nowrap mt-2'>
@@ -201,10 +218,10 @@ export default function EditRooms() {
                     </div>
 
 
-                    <label htmlFor="" className='font-light pt-2'>Imagen de la habitación</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Imagen de la habitación</label>
                     <div className="pt-2">
-                        <input type="file" className="fo
-                    nt-light"
+
+                        <input type="file" className="font-light dark:text-white text-black"
                             // name= "modcons"
                             // onChange = {handleImg}
                             // value={data.imagen}
@@ -212,6 +229,7 @@ export default function EditRooms() {
                             {...register('imagen')}
                         />
                     </div>
+
 
                     <div className='pt-5 grid justify-items-center mb-4'>
                         <button type="submit" className='font-light bg-yellow-800 w-32 h-10 text-white text-2xl'>Editar</button>

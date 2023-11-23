@@ -3,8 +3,8 @@ export default function Footer() {
     return(
         <div className="w-full h-full">
             <div className="">
-                <div className="bg-[rgba(230,230,230,1)]">
-                    <div className="w-full h-5/6 bg-[rgba(230,230,230,1)] md:flex ">
+                <div className="bg-[rgba(230,230,230,1)] dark:bg-gray-900 dark:text-white text-black">
+                    <div className="w-full h-5/6 bg-[rgba(230,230,230,1)] dark:bg-gray-900 dark:text-white md:flex ">
                         <div className="pl-8 pt-8 md:w-1/3 md:pl-10 md:pt-12 md:pb-6 lg:pl-20">
                             <p className="font-light text-2xl pb-4 md:text-3xl md:pb-6 lg:text-4xl">Perubiam.</p>
                             <p className="pb-4 md:pb-6"><a href="" className="font-light md:text-xl lg:text-2xl">Acerca de</a></p>
@@ -27,7 +27,19 @@ export default function Footer() {
                         </div>
                         
                     </div>
-                    <div className="pt-2 pb-4 flex justify-center md:pt-5 md:pb-5">
+
+                    {/* contenedor de los botones de imiciar y cerrar sesion */}
+                    <div>
+                        <div className="pt-2 pb-1 flex justify-center md:pb-2">
+                            <button className="font-light text-xs">Inicia sesión como administrador</button>
+                        </div>
+                        <div className="pt-2 pb-1 flex justify-center md:pb-2">
+                            <button className="font-light text-xs">Logout</button>
+                        </div>
+                    </div>
+                    {/* aqui terminan los botones */}
+
+                    <div className="pt-2 pb-4 flex justify-center md:pt-3 md:pb-5">
                         <p className="font-light text-xs">Todos los derechos reservados</p>
                     </div>
                 </div>
