@@ -2,17 +2,30 @@ import React, { useState, useEffect } from "react";
 import { useForm } from 'react-hook-form'
 import {  useAuth } from "../components/context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import  Swal  from 'sweetalert2'
 
 export default function Iniciarsesion({ toPage, setPage }) {
     const navigate = useNavigate()
-    const { signin, error, isAuthenticated } = useAuth()
+    const { signin, error, isAuthenticated, setShow } = useAuth()
     const { register, handleSubmit, formState: {
         errors                                                  // Errores del formState
     } } = useForm();
 
     const onSubmit = handleSubmit(
         async (user) => {
+           try {
             await signin(user)
+            setShow(true)
+            navigate('/*')
+            Swal.fire({
+                title: "Sesión inciada correctamente.",
+                text: "Bienvenido administrador.",
+                icon: "success",
+                confirmButtonColor: "#9A5832"
+            });
+           } catch (error) {
+            return false
+           }
         }
     )
 

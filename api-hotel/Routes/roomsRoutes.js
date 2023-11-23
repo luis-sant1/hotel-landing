@@ -11,4 +11,4 @@ router
 .get('/getRoom/:_id',  oneRoom)
 .delete('/deleteRoom/:_id',  deleteRoom)
 
-module.exports = router;
+module.exports = router; 

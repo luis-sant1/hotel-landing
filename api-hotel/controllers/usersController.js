@@ -171,12 +171,23 @@ const verify = async (req, res) => {
 }
 
 const logout = async (req, res) => {
-    res.cookie("token", "", {
-        httpOnly: true,
-        secure: true,
-        expires: new Date(0)
-    })
-    return res.sendStatus(200);
+    try {
+        res.cookie("token", "", {
+            httpOnly: true,
+            secure: true,
+            expires: new Date(0)
+        })
+        res.cookie("rol", "", {
+            httpOnly: true,
+            secure: true,
+            expires: new Date(0)
+        })
+        return res.sendStatus(200);
+    } catch (error) {
+        return res.status(500).json({
+            error: error
+        })
+    }
 }
 
 module.exports = { createUser, loginUser, updateUser, getAllUsers, deleteUser, verify, logout, addToFav };

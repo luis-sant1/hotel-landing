@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(null) 
     const [error, setError] = useState("")
     const [rooms, setRooms] = useState([])
-
+    const [loadData, setLoadData] = useState(null)
     const signin = async (user) => {
         try {
             console.log(user)
@@ -44,6 +44,8 @@ export const AuthProvider = ({ children }) => {
     const LogOut = async () => {
         try {
             const res = await logout()
+            Cookies.remove('token');
+            Cookies.remove('rol');
             console.log(res)
             setIsAuthenticated(false)
             window.location.href = "/*"
@@ -103,17 +105,31 @@ export const AuthProvider = ({ children }) => {
         }
         fetchRooms();
     }, [])
+    useEffect(() => {
+        const fetchRooms = async () => {
+            try {
+               const res = await allRooms()
+               setRooms(res.data?.rooms)
+               
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchRooms();
+    }, [loadData])
     console.log(rooms)
     return (
         <AuthContext.Provider value={{ //Export 
             setShow,
             show,
             signin,
+            LogOut,
             isAuthenticated,
             adminAuth,
             setUser, 
             error,
-            rooms   
+            rooms,
+            setLoadData 
         }}>
             {children}
         </AuthContext.Provider>

@@ -3,16 +3,18 @@ import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "./context/AuthContext";
 export default function NavBar() {
     
-    const { setShow, show,rooms } = useAuth()
+    const { setShow, show,rooms, setLoadData } = useAuth()
     const navigate = useNavigate();
     const toReservation = () => {
         navigate('/reservation-form')
         setShow(false)
+        setLoadData(true)
     }
 
     const toHome = () => {
         navigate('/')
         setShow(true)
+        
     }
 
 

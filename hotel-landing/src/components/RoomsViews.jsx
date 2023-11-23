@@ -3,7 +3,10 @@ import RoomsButtons from './RoomsButtons'
 import { useParams } from 'react-router-dom'
 import { oneRoom } from '../api/requests'
 import { useEffect, useState } from 'react'
+import { useAuth } from './context/AuthContext'
+import Footer from './Footer'
 export default function RoomsViews() {
+    const {isAuthenticated} = useAuth()
     function useForceUpdate(){
         const [value, setValue] = useState(0); // integer state
         return () => setValue(value => value + 1); // update state to force render
@@ -78,9 +81,11 @@ export default function RoomsViews() {
 
                 <CarouselReviews/>
             </div>
-
-            <RoomsButtons id = {id}/>
-
+            {
+                isAuthenticated && <RoomsButtons id = {id}/>
+            }
+            
+            <Footer />
         <style>
                 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
             </style>
