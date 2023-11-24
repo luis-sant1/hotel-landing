@@ -2,9 +2,12 @@ const express = require('express')
 const routes = require("./Routes/routes");
 const userRoutes = require('./Routes/userRoutes')
 const reservationsRoutes = require('./Routes/reservationsRoutes')
+const reviewRouter = require('./Routes/reviewRoutes')
+const roomsRouter = require('./Routes/roomsRoutes')
 const morgan = require('morgan') // See https request
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
+
 
 
 //Config 
@@ -34,5 +37,7 @@ app.use(cors({
 app.use("/", routes);
 app.use('/user', userRoutes)
 app.use('/reservations', reservationsRoutes)
+app.use('/room', roomsRouter)
+app.use('/reviews', reviewRouter)
 
 module.exports = app;

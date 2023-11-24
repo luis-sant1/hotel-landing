@@ -1,21 +1,53 @@
-import { useEffect, useState } from "react";
+import {  useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "./context/AuthContext";
 export default function NavBar() {
-    const {setShow, show} = useAuth()
+    
+    const { setShow, show,rooms, setLoadData } = useAuth()
     const navigate = useNavigate();
     const toReservation = () => {
         navigate('/reservation-form')
         setShow(false)
+        setLoadData(true)
     }
 
     const toHome = () => {
         navigate('/')
         setShow(true)
+        
+    }
+
+
+    const [theme, setTheme] = useState(() => {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+    
+        return "light";
+      });
+    
+      useEffect(() => {
+        if (theme === "dark") {
+          document.querySelector("html").classList.add("dark");
+        } else {
+          document.querySelector("html").classList.remove("dark");
+        }
+      }, [theme]);
+    
+      const handleChangeTheme = () => {
+        setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+      };
+
+
+    const handleOption = (e) => {
+        console.log(e.target)
+        setShow(false)
+        navigate(`/rooms-views/${e.target.value}`)
+        
     }
 
     return (
-        <div className="w-full h-14 bg-[rgba(230,230,230,1)] flex fixed z-10">
+        <div className="w-full h-14 bg-[rgba(230,230,230,1)] flex fixed z-10 dark:bg-gray-900 dark:text-white text-black">
             <div className="grid justify-self-start pl-8 pt-3 pb-3  ">
                 <button
                     onClick={toHome}
@@ -28,7 +60,31 @@ export default function NavBar() {
                         <>
                             <Link to='#info' className="hidden md:flex p-3 font-light text-2xl">Acerca de</Link>
                             <Link to='#rooms' className="hidden md:flex p-3 font-light text-2xl">Habitaciones</Link>
-                            <Link to='#beachs' className="hidden md:flex p-3 font-light text-2xl">Playas</Link>   
+
+                            <form action="" className="hidden md:flex md:pt-1 h-12 bg-[rgba(230,230,230,1)] dark:bg-gray-900 dark:text-black">
+                                <select   onChange={handleOption} name="" id="" className="font-light text-xl">
+                                    <option className="font-light">Disponibles</option>
+                                    {
+                                        rooms?.map((x, i) => {
+                                            return (
+                                                <option key={i} value={x._id} className="font-light">
+                                                    {x.title}
+                                                </option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </form>
+ <div className="hidden md:flex dark:bg-gray-900">
+                                <button
+                                className="bg-slate-200 px-4 py-2 rounded hover:bg-slate-300 dark:bg-gray-900 dark:text-white dark:hover:bg-slate-900"
+                                onClick={handleChangeTheme}
+                                >
+                                Cambiar Tema
+                                </button>
+                            </div>
+                            <Link to='#beachs' className="hidden md:flex p-3 font-light text-2xl">Playas</Link>
+
                         </>
                     )
                 }

@@ -15,6 +15,7 @@
     "dotenv": "^16.3.1",
     "flowbite-react": "^0.6.4",
     "framer-motion": "^10.16.5",
+    "js-cookie": "^3.0.5",
     "nodemailer": "^6.9.7",
     "normalize.css": "^8.0.1",
     "pure-react-carousel": "^1.30.1",

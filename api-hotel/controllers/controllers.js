@@ -16,7 +16,7 @@ const getAll =async(req,res)=>{
 
  const postItem = async (req, res) => {
    try {
-     console.log(req)
+     console.log(req) 
       if (!req.file) return res.status(404).json({messageError: 'Debes agregar una imagen del item'})
       const { path } = req.file;
 

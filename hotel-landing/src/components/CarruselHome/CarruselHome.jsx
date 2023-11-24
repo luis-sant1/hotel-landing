@@ -10,6 +10,9 @@ export default class extends React.Component {
         naturalSlideWidth={100}
         naturalSlideHeight={125}
         totalSlides={3}
+        interval={3000}
+        isPlaying={true}
+        infinite={true}
         className='pt-10 md:w-full lg:pt-0 lg:w-8/12 '
       >
         

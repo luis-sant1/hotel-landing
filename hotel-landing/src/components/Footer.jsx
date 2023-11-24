@@ -1,10 +1,22 @@
 import { FaFacebookSquare, FaInstagram, FaRedditAlien } from "react-icons/fa";
+import { useNavigate } from "react-router";
+import { useAuth } from "./context/AuthContext";
 export default function Footer() {
-    return(
+ 
+    const { setShow, isAuthenticated, LogOut } = useAuth()
+    const handleLogout = async() => {    
+        await LogOut();
+      }
+    const navigate = useNavigate()
+    const toLogin = () => {
+        navigate('/login')
+        setShow(false)
+    }
+    return (
         <div className="w-full h-full">
             <div className="">
-                <div className="bg-[rgba(230,230,230,1)]">
-                    <div className="w-full h-5/6 bg-[rgba(230,230,230,1)] md:flex ">
+                <div className="bg-[rgba(230,230,230,1)] dark:bg-gray-900 dark:text-white text-black">
+                    <div className="w-full h-5/6 bg-[rgba(230,230,230,1)] dark:bg-gray-900 dark:text-white md:flex ">
                         <div className="pl-8 pt-8 md:w-1/3 md:pl-10 md:pt-12 md:pb-6 lg:pl-20">
                             <p className="font-light text-2xl pb-4 md:text-3xl md:pb-6 lg:text-4xl">Perubiam.</p>
                             <p className="pb-4 md:pb-6"><a href="" className="font-light md:text-xl lg:text-2xl">Acerca de</a></p>
@@ -19,15 +31,37 @@ export default function Footer() {
                         <div className="pl-8 md:w-1/3 md:pl-10 md:pt-12 lg:pl-20">
                             <p className="pb-4 font-light md:text-xl md:pb-6 lg:text-2xl">Contáctanos</p>
                             <div className="flex pb-4 md:pb-6">
-                                <p className=""><FaFacebookSquare className="h-4 w-5 md:h-7 md:w-7 lg:w-10 lg:h-10"/></p>
-                                <p><FaInstagram className="h-4 w-5 md:h-7 md:w-7 lg:w-10 lg:h-10"/></p>
-                                <p><FaRedditAlien className="h-4 w-5 md:h-7 md:w-7 lg:w-10 lg:h-10"/></p>
+                                <p className=""><FaFacebookSquare className="h-4 w-5 md:h-7 md:w-7 lg:w-10 lg:h-10" /></p>
+                                <p><FaInstagram className="h-4 w-5 md:h-7 md:w-7 lg:w-10 lg:h-10" /></p>
+                                <p><FaRedditAlien className="h-4 w-5 md:h-7 md:w-7 lg:w-10 lg:h-10" /></p>
                             </div>
                             <p className="pb-4 font-light md:text-xl md:pb-6 lg:text-2xl">perubiamhotelsuits@gmail.com</p>
                         </div>
-                        
+
                     </div>
-                    <div className="pt-2 pb-4 flex justify-center md:pt-5 md:pb-5">
+
+                    {/* contenedor de los botones de imiciar y cerrar sesion */}
+                    <div>
+                        {
+                            !isAuthenticated &&
+                            <div className="pt-2 pb-1 flex justify-center md:pb-2">
+                                <button onClick={toLogin} className="font-light text-xs">Inicia sesión como administrador</button>
+                            </div>
+                        }
+                        {
+                            isAuthenticated &&
+                            <div className="pt-2 pb-1 flex justify-center md:pb-2">
+                                <button 
+                                onClick={handleLogout}
+                                className="font-light text-xs">Logout
+                                </button>
+                            </div>
+                        }
+
+                    </div>
+                    {/* aqui terminan los botones */}
+
+                    <div className="pt-2 pb-4 flex justify-center md:pt-3 md:pb-5">
                         <p className="font-light text-xs">Todos los derechos reservados</p>
                     </div>
                 </div>
