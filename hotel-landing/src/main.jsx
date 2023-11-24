@@ -5,10 +5,12 @@ import App from './App.jsx'
 import './index.css'
 import { AuthProvider } from './components/context/AuthContext.jsx';
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <AuthProvider>
-    <React.StrictMode>
+
+  <React.StrictMode>
+    <AuthProvider>
       <App />
-    </React.StrictMode>
-  </AuthProvider>
+    </AuthProvider>
+  </React.StrictMode>
+
 
 )

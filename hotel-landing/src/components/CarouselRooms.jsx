@@ -1,6 +1,7 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Rooms from './Rooms';
+import { useAuth } from './context/AuthContext';
 export default function CarouselRooms (){
     const responsive = {
         superLargeDesktop: {
@@ -22,38 +23,7 @@ export default function CarouselRooms (){
         }
         
     };
-    const data = [
-        {
-            "type": "Habitación matrimonial.",
-            "promo": "¡El mejor lugar para vacacionar! 5% de descuento.",
-            "link": "",
-            "img": "https://www.hotelabelux.com/themes/demo/assets/images/triple.jpg"
-        },
-        {
-            "type": "Habitación para 3 personas.",
-            "promo": "¡El mejor lugar para vacacionar! 5% de descuento.",
-            "link": "",
-            "img": "https://images.hola.com/imagenes/decoracion/20230425230358/dormitorios-inspirados-en-habitaciones-hoteles-am/1-237-28/habitaciones-hotel-5a-a.jpg"
-        },
-        {
-            "type": "Habitación para 4 personas.",
-            "promo": "¡El mejor lugar para vacacionar! 10% de descuento.",
-            "link": "",
-            "img": "https://hotelhumberto.com.mx/img/site/vista-habitaciones/4-personas-2.jpg"
-        },
-        {
-            "type": "Habitación para 5 personas.",
-            "promo": "¡El mejor lugar para vacacionar! 5% de descuento.",
-            "link": "",
-            "img": "https://bestlocationhotels.com/wp-content/uploads/2019/04/TRYP-by-Wyndham-Times-Square-South.jpg"
-        },
-        {
-            "type": "Habitación para 6 personas.",
-            "promo": "¡El mejor lugar para vacacionar! 5% de descuento.",
-            "link": "",
-            "img": "https://es.hotellebayeux.com/usermedia/photo-636567303628543623-2.jpg?dummy=0&h=800"
-        }
-    ]
+    const {rooms} = useAuth()
     return(
         
             <div className='w-full  m-auto pt-10 pb-10 md:pt-16'>
@@ -61,9 +31,9 @@ export default function CarouselRooms (){
                 <Carousel
                     responsive={responsive}>
                         {
-                            data?.map((x, i) => {
+                            rooms?.map((x, i) => {
                                 return ( 
-                                    <Rooms key={i} type={x.type} promo={x.promo} img={x.img}/>
+                                    <Rooms key={i} type={x.title} promo={x.promo} img={x.imagen.secure_url} id= {x._id}/>
                                 )
                             })
                         }

@@ -22,21 +22,7 @@ const tokenSign = async (user) => {
  */
 const verifyToken = async (tokenJWT) => {           // Recibe el token de sesión
     try {
-        return jwt.verify(tokenJWT, jwtSecret, async(err, user) =>{
-            if(err)return res.status(401).json({
-                error: "Unauthorized"
-            });
-            const userFound = await UserSchema.findById(user.id)
-            if(!userFound) return res.status(401).json({
-                error: "Unauthorized"
-            })
-            return res.json({
-                id: userFound._id,
-                name:  userFound.name,
-                lastNam: userFound.lastName,
-                email: userFound.email
-            })
-        })      // Verifica el token de sesión con la clave maestra. JWT SECRET
+        return jwt.verify(tokenJWT, jwtSecret)      // Verifica el token de sesión con la clave maestra. JWT SECRET
     } catch (error) {
         return null
     }
