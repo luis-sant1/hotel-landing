@@ -73,7 +73,7 @@ export default function Iniciarsesion({ toPage, setPage }) {
 
                     }
 
-                    <divclassName='pt-10 grid justify-items-center mb-4 pb-32'>
+                    <div className='pt-10 grid justify-items-center mb-4 pb-32'>
 
                         <button type="submit" className="font-light bg-yellow-800 w-32 h-10 text-white text-2xl">
                             Iniciar Sesión
