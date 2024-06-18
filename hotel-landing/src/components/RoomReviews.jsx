@@ -11,10 +11,15 @@ export default function RoomReviews() {
     
     useState(()=> {
         const fetching = async ( )=>{
-            const res = await oneRoom(id)
-            setLoading(false)
-            // console.log(res.data.room.review)
-            setData(res.data.room.review)
+            try {
+                const res = await oneRoom(id)
+                setLoading(false)
+                // console.log(res.data.room.review)
+                setData(res.data.room.review)
+            } catch (error) {
+                setLoading(false)
+                setData( [{username: "default", review: "Default review"}],)
+            }
         }
         fetching()
     }, [])

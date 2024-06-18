@@ -3,16 +3,52 @@ import 'react-multi-carousel/lib/styles.css';
 import Reviews from './Reviews';
 import { comments } from '../api/requests'
 import { useEffect, useState } from 'react';
+import { comment } from 'postcss';
 export default function CarouselReviews() {
-    const [data, setData] = useState([])
-    const [loading, setLoading] = useState(true)
-
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const comments = [
+        {
+          username:"user",
+          body: "Comentario nuevo"
+        },
+        {
+          username:"user",
+          body: "Comentario nuevo"
+        },
+        {
+          username:"user",
+          body: "Comentario nuevo"
+        },
+        {
+          username:"user",
+          body: "Comentario nuevo"
+        },
+        {
+          username:"user",
+          body: "Comentario nuevo"
+        },
+        {
+          username:"user",
+          body: "Comentario nuevo"
+        },
+        {
+          username:"user",
+          body: "Comentario nuevo"
+        },
+        {
+          username:"user",
+          body: "Comentario nuevo"
+        },
+      ]
     useEffect(() => {
       setLoading(true)
-      comments().then(res => {
-        setData(res.data.comments)
-        setLoading(false)
-      })
+      setData(comments);
+      setLoading(false)
+    //   comments().then(res => {
+    //     // setData(res.data)
+    //     setLoading(false)
+    //   })
     }, [])
 
     const responsive = {

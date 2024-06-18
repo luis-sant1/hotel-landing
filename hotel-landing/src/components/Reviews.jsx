@@ -19,9 +19,9 @@ export default function Reviews (data){
         <div className="m-4">
             <div className="bg-brown">
             <IconBxsQuoteAltLeft className="text-white"/>
-                <p className="text-white mb-10 pb-5 font-light pr-5 pl-5 pt-0'">{data.data?.body}</p>
+                <p className="text-white mb-10 pb-5 font-light pr-5 pl-5 pt-0'">{data?.data?.body}</p>
                 <h2 className="text-2xl p-2"><span
-                className="font-thin font-lg p-5 text-white">@{data.data?.user.username}</span></h2>
+                className="font-thin font-lg p-5 text-white">@{data?.data?.username}</span></h2>
             </div>
         </div>
     )
