@@ -5,7 +5,6 @@ var imagekit = new ImageKit({
     privateKey: process.env.IMGKIT_PRIVATEKEY,
     urlEndpoint: process.env.IMGKIT_URLENDPOINT
 });
-
 /**
  * 
  * @param {Base64} file 
@@ -13,7 +12,6 @@ var imagekit = new ImageKit({
  * @param {String} dirname
  * @returns Confirmation Object
  */
-
 const uploadFun = (file, filename, dirname) => {
     return imagekit.upload({
         file: file, //required
@@ -32,7 +30,4 @@ const uploadFun = (file, filename, dirname) => {
         throw new Error(error);
     });
 }
-
-
-
 module.exports = { uploadFun };

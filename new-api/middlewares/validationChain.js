@@ -1,7 +1,5 @@
 const { check, validationResult } = require('express-validator');
-
 function roomValidation() {
-    console.log("LOOOL");
     return [
         check('title')
             .exists()
@@ -51,7 +49,7 @@ function roomValidation() {
             .isString(),
         (req, res, next) => {
             try {
-                validationResult(req).throw();
+                validationResult(req).throw(); // Throw! Allows to catch the error!
                 return next();
             } catch (error) {
                 return res.status(403).json({
@@ -61,5 +59,4 @@ function roomValidation() {
         }
     ]
 }
-
 module.exports = { roomValidation }

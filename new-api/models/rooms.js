@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const Room = new mongoose.Schema({
     title: String,
     description: String,
@@ -11,9 +10,9 @@ const Room = new mongoose.Schema({
     modcon2: String,
     modcon3: String,
 },
-{
-    timestamps: true,
-    versionKey: false
-});
+    {
+        timestamps: true,
+        versionKey: false
+    });
 
 module.exports = mongoose.model('Room', Room);
