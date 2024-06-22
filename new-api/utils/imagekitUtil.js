@@ -15,8 +15,6 @@ var imagekit = new ImageKit({
  */
 
 const uploadFun = (file, filename, dirname) => {
-    console.log("i'm Here")
-
     return imagekit.upload({
         file: file, //required
         fileName: filename,   //required
