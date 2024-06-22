@@ -1,5 +1,6 @@
 // SINGLETON
 const roomModel = require('../models/rooms');
+const {uploadFun} = require('../utils/imagekitUtil');
 const getAll = async (req, res) => {
     try {
         const rooms = await roomModel.find({});
@@ -13,26 +14,28 @@ const createRoom = async (req, res) => {
         title,
         description,
         price,
-        imagen,
+        image,
         promo,
         modcon,
         modcon1,
         modcon2,
         modcon3,
     } = req.body;
-    
+    const room = {
+        title,
+        description,
+        price,
+        image,
+        promo,
+        modcon,
+        modcon1,
+        modcon2,
+        modcon3,
+    }
     try {
-        const newRoom = new roomModel({
-            title,
-            description,
-            price,
-            imagen,
-            promo,
-            modcon,
-            modcon1,
-            modcon2,
-            modcon3,
-        }) 
+        const fileUploaded = await uploadFun(req.file.buffer.toString('base64'), req.file.originalname, 'rooms')
+        room.image = fileUploaded.url;
+        const newRoom = new roomModel(room);
         await newRoom.save();
         return res.status(200).json({newRoom});
     } catch (e) {

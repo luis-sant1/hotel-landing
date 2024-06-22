@@ -4,9 +4,7 @@ const Room = new mongoose.Schema({
     title: String,
     description: String,
     price: String,
-    imagen:{
-        secure_url: String
-    },
+    image: String,
     promo: String,
     modcon: String,
     modcon1: String,
