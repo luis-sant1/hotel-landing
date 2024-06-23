@@ -17,11 +17,6 @@ function roomValidation() {
             .trim()
             .notEmpty()
             .isString(),
-        check('image')
-            .exists()
-            .trim()
-            .notEmpty()
-            .isString(),
         check('promo')
             .exists()
             .trim()

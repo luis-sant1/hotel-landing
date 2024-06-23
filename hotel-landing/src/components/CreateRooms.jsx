@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { sendDataUrl } from '../api/requests'
 import Swal from 'sweetalert2'
 export default function CreateRooms() {
-    const { register, handleSubmit, control, formState: {
+    const { register, handleSubmit, formState: {
         errors
     }} = useForm()
     
@@ -30,6 +30,7 @@ export default function CreateRooms() {
             window.location.href = '/*'
             
         } catch (error) {
+            console.log(error)
             await Swal.fire({
                 title: "Ha ocurrido un error al crear la habitación.",
                 icon: "error",

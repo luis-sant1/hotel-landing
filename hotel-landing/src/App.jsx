@@ -22,10 +22,10 @@ function App() {
         <Route path='/rooms-views/:id' element={<RoomsViews />} />
         <Route path='/login' element={<Login />} />
         <Route path='/rReviews' element={<RoomReviews/>} />
+        <Route path='/create-room' element={<CreateRooms />} />  
 
         <Route element={<ProtectedRoutes />}>
           <Route path='/edit-rooms/:id' element={<EditRooms />} />
-          <Route path='/create-rooms' element={<CreateRooms />} />  
         </Route>
 
       </Routes>
