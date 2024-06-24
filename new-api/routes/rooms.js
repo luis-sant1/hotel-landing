@@ -5,7 +5,7 @@ const upload = require('../middlewares/uploadImages');
 const { roomValidation } = require('../middlewares/validationChain');
 router
     .get('/all', getAll)
-    .post('/create', roomValidation(), upload.single("file"), createRoom)
+    .post('/create', upload.single("file"), roomValidation(), createRoom)
     .get('/:id', getOne)
     .delete('/remove/:id', deleteOne)
     .put('/edit/:id', updateOne)

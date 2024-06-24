@@ -8,7 +8,7 @@ export default function CreateRooms() {
     
     const onSubmit = handleSubmit(async (values) => {
         const formData = new FormData();
-        formData.append("imagen", values.imagen[0]);
+        formData.append("file", values.file[0]);
         formData.append("title", values.title);
         formData.append("description", values.description);
         formData.append("price", values.price);
@@ -17,11 +17,11 @@ export default function CreateRooms() {
         formData.append("modcon1", values.modcon1);
         formData.append("modcon2", values.modcon2);
         formData.append("modcon3", values.modcon3);
-        values = { ...values, imagen: values.imagen[0]};
+        values = { ...values, file: values.file[0]};
         
         try {
             console.log(values)
-            await sendDataUrl(formData)
+            await sendDataUrl(formData);
             await Swal.fire({
                 title: "Habitación creada con exito.",
                 icon: "success",
@@ -193,18 +193,18 @@ export default function CreateRooms() {
                     </div>
 
 
-                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>Imagen de la habitación</label>
+                    <label htmlFor="" className='font-light pt-2 dark:text-white text-black'>file de la habitación</label>
                     <div className="pt-2">
 
 
                         <input type="file" className="font-light dark:text-white text-black"
-                            id = 'imagen'
-                             {...register('imagen', {required: true}) }  
+                            id = 'file'
+                             {...register('file', {required: true}) }  
                              />
                              
                     </div>
                     {
-                        errors.imagen && (
+                        errors.file && (
                             <div className='flex flex-nowrap mt-2'>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-red-500 w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />

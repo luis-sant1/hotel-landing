@@ -1,43 +1,42 @@
-const { check, validationResult } = require('express-validator');
+const { body, validationResult } = require('express-validator');
 function roomValidation() {
     return [
-        check('title')
-            .exists()
-            .trim()
-            .notEmpty()
-            .isString()
-            .isString(),
-        check('description')
+        body('title')
             .exists()
             .trim()
             .notEmpty()
             .isString(),
-        check('price')
+        body('description')
             .exists()
             .trim()
             .notEmpty()
             .isString(),
-        check('promo')
+        body('price')
             .exists()
             .trim()
             .notEmpty()
             .isString(),
-        check('modcon')
+        body('promo')
             .exists()
             .trim()
             .notEmpty()
             .isString(),
-        check('modcon1')
+        body('modcon')
             .exists()
             .trim()
             .notEmpty()
             .isString(),
-        check('modcon2')
+        body('modcon1')
             .exists()
             .trim()
             .notEmpty()
             .isString(),
-        check('modcon3')
+        body('modcon2')
+            .exists()
+            .trim()
+            .notEmpty()
+            .isString(),
+        body('modcon3')
             .exists()
             .trim()
             .notEmpty()
