@@ -3,7 +3,10 @@ const Room = new mongoose.Schema({
     title: String,
     description: String,
     price: String,
-    image: String,
+    image: {
+        main: String,
+        alt: Array
+    },
     promo: String,
     modcon: String,
     modcon1: String,

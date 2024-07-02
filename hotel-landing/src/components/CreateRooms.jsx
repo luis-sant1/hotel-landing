@@ -51,7 +51,7 @@ export default function CreateRooms() {
                     <div className='pt-1'>
                         <input type="text"
                              className='font-light w-full border border-solid border-black grid h-10 p-2 text-black' 
-                            {...register('title', { required: true, minLength: 4, maxLength: 40, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/  })} />
+                            {...register('title', { required: true, minLength: 4, maxLength: 120, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/  })} />
                     </div>
                     {
                         errors.title && (
@@ -67,7 +67,7 @@ export default function CreateRooms() {
                     <div className='pt-1'>
                         <input type="text"
                              className='font-light w-full border border-solid border-black grid h-10 p-2 text-black' 
-                            {...register('promo', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })} />
+                            {...register('promo', { required: true, minLength: 4, maxLength: 200})} />
 
                         {
                             errors.promo && (
@@ -86,7 +86,7 @@ export default function CreateRooms() {
                     <div className='pt-1'>
                         <input type="text"
                             className='font-light w-full border border-solid border-black grid h-10 p-2 text-black'
-                            {...register('description', {required: true, minLength: 4, maxLength: 200, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })} />
+                            {...register('description', {required: true, minLength: 4, maxLength: 240})} />
 
                         {
                             errors.description && (
@@ -141,7 +141,7 @@ export default function CreateRooms() {
                         <input type="text"
 
                              className='font-light w-full border border-solid border-black grid h-10 p-2 text-black'
-                            {...register('modcon2', { required: true, minLength: 4, maxLength: 90, pattern: /^[a-zA-ZÀ-ÿ\s]{4,90}$/ })} />
+                            {...register('modcon2', { required: true, minLength: 4, maxLength: 90})} />
 
                         {
                             errors.modcons && (

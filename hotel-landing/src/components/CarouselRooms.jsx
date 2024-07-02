@@ -24,7 +24,6 @@ export default function CarouselRooms (){
         
     };
     const {rooms} = useAuth()
-    console.log(rooms)
     return(
         
             <div className='w-full  m-auto pt-10 pb-10 md:pt-16'>
@@ -34,7 +33,7 @@ export default function CarouselRooms (){
                         {
                             rooms?.map((x, i) => {
                                 return ( 
-                                    <Rooms key={i} type={x.title} promo={x.promo} img={x.imagen.secure_url} id= {x._id}/>
+                                    <Rooms key={i} type={x.title} promo={x.promo} img={x.image} id= {x._id}/>
                                 )
                             })
                         }

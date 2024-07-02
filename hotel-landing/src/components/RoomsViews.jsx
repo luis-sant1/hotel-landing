@@ -20,7 +20,8 @@ export default function RoomsViews() {
         const room = async () => {
             try {
                 const res = await oneRoom(id)
-                setRoom(res.data?.room)
+                console.log(res)
+                setRoom(res?.data)
             } catch (error) {
                 const defaultRoom = {
                     title: "Dafault",
@@ -51,7 +52,7 @@ export default function RoomsViews() {
                 <img
                     className="h-80 w-full relative object-cover md:h-full lg:h-4/6 "
 
-                    src={room?.imagen?.secure_url} alt="Imagen de la habitación" />
+                    src={room?.image} alt="Imagen de la habitación" />
                 <div className="absolute z-5 m-auto left-0 right-0  text-white flex self-end items-end w-full pb-10" >
                     <div className="flex justify-center w-1/2">
                         <h2 className="text-4xl font-extralight flex  lg:text-5xl">{room?.title}</h2>

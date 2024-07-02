@@ -90,51 +90,49 @@ export const AuthProvider = ({ children }) => {
         }
         validate(); // EJECUTA
     }, []);
-
+    // useEffect(() => {
+    //     const fetchRooms = async () => {
+    //         try {
+    //             const res = await allRooms();
+    //             console.log(res.data.length)
+    //             if (res.data.length > 0) {
+    //                 setRooms(res.data)
+    //                 console.log(rooms);
+    //             } else {
+    //                 const defaultRoom = [{
+    //                     title: "Dafault",
+    //                     description: "Dafault description",
+    //                     price: 123,
+    //                     imagen: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.kayak.com.mx%2Fnews%2Ftipo-de-hoteles-por-estrellas%2F&psig=AOvVaw2LZByP3Kta9_RS_B47QnkU&ust=1718640932929000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPCo3tvc4IYDFQAAAAAdAAAAABAE",
+    //                   ew:"",
+    //               promo: "",
+    //                     modcon: "",
+    //                     modcon1: "",
+    //                     modcon2: "",
+    //                     modcon3: "",
+    //                 }];
+    //                 setRooms(defaultRoom);
+    //             }
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     }
+    //     fetchRooms();
+    // }, [])
     useEffect(() => {
         const fetchRooms = async () => {
             try {
-                const res = await allRooms()
-                if (res.data.rooms.length > 0) {
-                    setRooms(res.data.rooms)
-                } else {
-                    const defaultRoom = [{
-                        title: "Dafault",
-                        description: "Dafault description",
-                        price: 123,
-                        imagen: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.kayak.com.mx%2Fnews%2Ftipo-de-hoteles-por-estrellas%2F&psig=AOvVaw2LZByP3Kta9_RS_B47QnkU&ust=1718640932929000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPCo3tvc4IYDFQAAAAAdAAAAABAE",
-                        review:"",
-                        promo: "",
-                        modcon: "",
-                        modcon1: "",
-                        modcon2: "",
-                        modcon3: "",
-                    }];
-                    setRooms(defaultRoom);
-                }
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        fetchRooms();
-    }, [])
-    useEffect(() => {
-        const fetchRooms = async () => {
-            try {
-                const res = await allRooms()
-                console.log(res.data.rooms.length)
-                if (res.data.rooms.length > 0) {
-                    setRooms(res.data.rooms)
+                const res = await allRooms();
+                if (res.data.length > 0) {
+                    setRooms(res.data)
                 }
             } catch (error) {
                 const defaultRoom = [{
                     title: "Dafault",
                     description: "Dafault description",
                     price: "123",
-                    imagen: {
-                        secure_url: "https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg"
-                    },
-                    review:"",
+                    imagen: "https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg",
+                    review: "",
                     promo: "",
                     modcon: "",
                     modcon1: "",
@@ -145,10 +143,8 @@ export const AuthProvider = ({ children }) => {
                     title: "Dafault",
                     description: "Dafault description",
                     price: "123",
-                    imagen: {
-                        secure_url: "https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg"
-                    },
-                    review:"",
+                    imagen: "https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg",
+                    review: "",
                     promo: "",
                     modcon: "",
                     modcon1: "",
@@ -159,10 +155,8 @@ export const AuthProvider = ({ children }) => {
                     title: "Dafault",
                     description: "Dafault description",
                     price: "123",
-                    imagen: {
-                        secure_url: "https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg"
-                    },
-                    review:"",
+                    imagen: "https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg",
+                    review: "",
                     promo: "",
                     modcon: "",
                     modcon1: "",
@@ -172,7 +166,7 @@ export const AuthProvider = ({ children }) => {
                 setRooms(defaultRoom);
                 console.log(error)
             }
-            
+
         }
         fetchRooms();
     }, [loadData])
