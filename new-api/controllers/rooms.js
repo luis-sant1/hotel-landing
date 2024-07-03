@@ -33,17 +33,16 @@ const createRoom = async (req, res) => {
         modcon3,
     }
     try {
-        const fileUploaded = await uploadFun(req.files.main[0].buffer.toString('base64'),req.files.main[0].originalname, 'rooms');
-        if(req.files.alts === 0) {
-            throw new Error("There is no alt image");
-        }
-        const altLinks = [];
         const alts = req.files.alts;
-        for(let i = 0; i < alts.length; i++) {
+        const main = req.files.main;
+        if (main === undefined || main.length === 0) throw new Error("There is no main image!");
+        if (alts === undefined || alts.length === 0) throw new Error("There is no alt image!");
+        const fileUploaded = await uploadFun(req.files.main[0].buffer.toString('base64'), req.files.main[0].originalname, 'rooms');
+        const altLinks = [];
+        for (let i = 0; i < alts.length; i++) {
             const res = await uploadFun(alts[i].buffer.toString('base64'), alts[i].originalname, 'rooms');
             altLinks.push(res.url);
         }
-        console.log(altLinks)
         room.image = {
             main: fileUploaded.url,
             alt: altLinks
@@ -61,7 +60,7 @@ const getOne = async (req, res) => {
         const room = await roomModel.findById(id);
         return res.status(200).json(room);
     } catch (error) {
-        return res.status(500).json({messageError: error.message});
+        return res.status(500).json({ messageError: error.message });
     };
 }
 const deleteOne = async (req, res) => {
@@ -70,16 +69,30 @@ const deleteOne = async (req, res) => {
         const room = await roomModel.findByIdAndDelete(id);
         return res.status(200).send('Item succesfully remove');
     } catch (error) {
-        return res.status(500).json({messageError: error.message});
+        return res.status(500).json({ messageError: error.message });
     }
 }
 const updateOne = async (req, res) => {
+    const alts = req.files?.alts;
+    const main = req.files?.main;
     const { id } = req.params;
     try {
+        if (main) {
+            const fileUploaded = await uploadFun(main[0].buffer.toString('base64'), main[0].originalname, 'rooms');
+            req.body.image.main = fileUploaded.url;
+        };
+        if (alts) {
+            const altLinks = [];
+            for (let i = 0; i < alts.length; i++) {
+                const res = await uploadFun(alts[i].buffer.toString('base64'), alts[i].originalname, 'rooms');
+                altLinks.push(res.url);
+            }
+            req.body.image.alts = altLinks;
+        };
         const room = await roomModel.findOneAndUpdate({ _id: id }, req.body);
         return res.status(200).json(room);
     } catch (error) {
-        return res.status(500).json({messageError: error.message});
+        return res.status(500).json({ messageError: error.message });
     }
 }
 module.exports = { getAll, createRoom, getOne, deleteOne, updateOne }

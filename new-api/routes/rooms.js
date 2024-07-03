@@ -15,5 +15,5 @@ router
     .post('/create', upload.fields(fields), roomValidation(), createRoom)
     .get('/:id', getOne)
     .delete('/remove/:id', deleteOne)
-    .put('/edit/:id', updateOne)
+    .put('/edit/:id', upload.fields(fields), roomValidation(), updateOne)
 module.exports = router

@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom'
 import { editRoom } from '../api/requests'
 export default function EditRooms() {
     const { id } = useParams()
-    console.log(id)
     const { register, handleSubmit, formState: {
         errors
     } } = useForm()
