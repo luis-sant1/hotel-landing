@@ -46,6 +46,7 @@ function roomValidation() {
                 validationResult(req).throw(); // Throw! Allows to catch the error!
                 return next();
             } catch (error) {
+                console.log(error)
                 return res.status(403).json({
                     error: "Error entrada de datos invalida."
                 })
