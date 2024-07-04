@@ -23,9 +23,9 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/rReviews' element={<RoomReviews/>} />
         <Route path='/create-room' element={<CreateRooms />} />  
+        <Route path='/edit-rooms/:id' element={<EditRooms />} />
 
         <Route element={<ProtectedRoutes />}>
-          <Route path='/edit-rooms/:id' element={<EditRooms />} />
         </Route>
 
       </Routes>

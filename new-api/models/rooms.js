@@ -5,7 +5,7 @@ const Room = new mongoose.Schema({
     price: String,
     image: {
         main: String,
-        alt: Array
+        alts: Array
     },
     promo: String,
     modcon: String,

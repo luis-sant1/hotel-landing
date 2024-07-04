@@ -44,7 +44,7 @@ export default function RoomsViews() {
         room();
     }, [])
     const { id } = useParams()
-
+    console.log(room.image)
 
     return (
         <div className='w-full h-full dark:bg-gray-800  bg-white'>
@@ -52,7 +52,7 @@ export default function RoomsViews() {
                 <img
                     className="h-80 w-full relative object-cover md:h-full lg:h-4/6 "
 
-                    src={room?.image} alt="Imagen de la habitación" />
+                    src={room?.image?.main} alt="Imagen de la habitación" />
                 <div className="absolute z-5 m-auto left-0 right-0  text-white flex self-end items-end w-full pb-10" >
                     <div className="flex justify-center w-1/2">
                         <h2 className="text-4xl font-extralight flex  lg:text-5xl">{room?.title}</h2>
@@ -98,9 +98,8 @@ export default function RoomsViews() {
 
                 <RoomReviews id={id} />
             </div>
-            {
-                isAuthenticated && <RoomsButtons id={id} />
-            }
+            <RoomsButtons id={id} />
+            
 
             <Footer />
             <style>
