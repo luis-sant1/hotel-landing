@@ -13,7 +13,7 @@ const fields = [{
 router
     .get('/all', getAll)
     .post('/create', upload.fields(fields), roomValidation(), createRoom)
-    .get('/:id', getOne)
+    .get('/user/:id', getOne)
     .delete('/remove/:id', deleteOne)
     .put('/edit/:id', upload.fields(fields), roomValidation(), updateOne)
 module.exports = router

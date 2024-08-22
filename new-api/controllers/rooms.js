@@ -66,7 +66,7 @@ const getOne = async (req, res) => {
 const deleteOne = async (req, res) => {
     const { id } = req.params;
     try {
-        const room = await roomModel.findByIdAndDelete(id);
+        await roomModel.findByIdAndDelete(id);
         return res.status(200).send('Item succesfully remove');
     } catch (error) {
         return res.status(500).json({ messageError: error.message });
