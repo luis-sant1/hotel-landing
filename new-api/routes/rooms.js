@@ -16,4 +16,6 @@ router
     .get('/user/:id', getOne)
     .delete('/remove/:id', deleteOne)
     .put('/edit/:id', upload.fields(fields), roomValidation(), updateOne)
-module.exports = router
+module.exports = function(app) {
+  app.use('/rooms', router);
+};

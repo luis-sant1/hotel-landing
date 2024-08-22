@@ -6,4 +6,6 @@ router
     res.send('Hello world!');   
 })
 
-module.exports = router;
+module.exports = function(app) {
+    app.use('/user', router);
+};
