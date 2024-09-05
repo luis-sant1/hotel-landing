@@ -54,4 +54,38 @@ function roomValidation() {
         }
     ]
 }
-module.exports = { roomValidation }
+
+function userValidation() {
+    return [
+        body('email')
+            .exists()
+            .trim()
+            .notEmpty()
+            .isString()
+            .isEmail(),
+        body('password')
+            .exists()
+            .trim()
+            .notEmpty()
+            .isString(),
+        body('name')
+            .isString(),
+        body('image')
+            .isString(),
+        body('surname')
+            .isString(),
+        (req, res, next) => {
+            try {
+                validationResult(req).throw(); // Throw! Allows to catch the error!
+                return next();
+            } catch (error) {
+                // console.log(error)
+                return res.status(403).json({
+                    error: "Error entrada de datos invalida."
+                })
+            }
+        }
+    ]
+}
+
+module.exports = { roomValidation, userValidation }
